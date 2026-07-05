@@ -68,20 +68,11 @@ const MOTION = [
   ["--ease-editorial", "cubic-bezier(0.16, 1, 0.3, 1)", "weighted reveals"],
 ];
 
-const DEFERRED = [
-  "PriceBandChart",
-  "DistributionHistogram",
-  "VelocityStat",
-  "MarkdownMagnitude",
-  "SpreadPanel",
-  "CompTable",
-  "RecommendationBlock",
-  "CommandSearch",
-  "HeroMotif (WebGL)",
-  "MethodStep",
-  "PipelineDiagram",
-  "FilterRail",
-];
+// Built in Phases 2 through 7. The only piece still deferred is the expanding
+// command-palette search on the hero (the plain search field and search page
+// are built); the hero motif shipped as a Canvas 2D point field rather than
+// WebGL.
+const DEFERRED = ["CommandSearch (expanding hero search)"];
 
 function Swatches({ rows }: { rows: string[][] }) {
   return (

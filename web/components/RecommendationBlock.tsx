@@ -1,5 +1,6 @@
-import { formatUsd, formatCount } from "@/lib/format";
+import { formatCount } from "@/lib/format";
 import { ConfidenceBadge } from "./ConfidenceBadge";
+import { CountUp } from "./CountUp";
 
 // The answer. Recommended list price large in mono, its confidence grade, and
 // the sample size it rests on. When the piece is too thin, the recommendation
@@ -20,7 +21,9 @@ export function RecommendationBlock({
   return (
     <section className="rec" aria-label="Recommended list price">
       <p className="rec-label">Recommended list price</p>
-      <p className="rec-value spark">{formatUsd(recommendedListPrice)}</p>
+      <p className="rec-value">
+        <CountUp value={Number(recommendedListPrice)} kind="usd" className="spark" />
+      </p>
       <div className="rec-support">
         <ConfidenceBadge grade={grade} caption={formatCount(nSold, "comp")} />
         <span className="rec-basis">

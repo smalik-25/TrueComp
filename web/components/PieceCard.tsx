@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { formatUsd, formatInt } from "@/lib/format";
 import { ConfidenceBadge } from "./ConfidenceBadge";
+import { ViewTransitionLink } from "./ViewTransitionLink";
 
 // Typographic piece card: no image is assumed (section 3.1). Brand and model
 // are serif (they name a relic); every number is mono. Routes on canonical_key,
@@ -52,9 +52,9 @@ export function PieceCard({
 
   if (canonicalKey) {
     return (
-      <Link className="piece-card" href={`/piece/${encodeURIComponent(canonicalKey)}`}>
+      <ViewTransitionLink className="piece-card" href={`/piece/${encodeURIComponent(canonicalKey)}`}>
         {body}
-      </Link>
+      </ViewTransitionLink>
     );
   }
   return <div className="piece-card">{body}</div>;

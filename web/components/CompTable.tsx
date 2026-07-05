@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import type { Sale } from "@/lib/queries/detail";
 import { formatUsd } from "@/lib/format";
 import { SourceTag } from "./SourceTag";
+import { useHighlight, priceInRange } from "./highlight";
 
 // The underlying sold listings, mono throughout. Grailed rows show "undated"
 // rather than inventing a date. Best-offer sales are flagged. No condition
@@ -21,6 +22,7 @@ function marketplaceSource(m: string): "ebay" | "grailed" | "yahoo" {
 export function CompTable({ sales }: { sales: Sale[] }) {
   const [key, setKey] = useState<SortKey>("price");
   const [dir, setDir] = useState<Dir>("desc");
+  const { range, setRange } = useHighlight();
 
   const sorted = useMemo(() => {
     const rows = [...sales];
@@ -55,17 +57,17 @@ export function CompTable({ sales }: { sales: Sale[] }) {
           <tr>
             <th aria-sort={ariaSort("marketplace")}>
               <button type="button" className="th-sort" onClick={() => sortBy("marketplace")}>
-                Source <span className="th-caret">{caret("marketplace")}</span>
+                Source <span className="th-caret" aria-hidden="true">{caret("marketplace")}</span>
               </button>
             </th>
             <th className="num-col" aria-sort={ariaSort("price")}>
               <button type="button" className="th-sort" onClick={() => sortBy("price")}>
-                Price <span className="th-caret">{caret("price")}</span>
+                Price <span className="th-caret" aria-hidden="true">{caret("price")}</span>
               </button>
             </th>
             <th aria-sort={ariaSort("date")}>
               <button type="button" className="th-sort" onClick={() => sortBy("date")}>
-                Sold <span className="th-caret">{caret("date")}</span>
+                Sold <span className="th-caret" aria-hidden="true">{caret("date")}</span>
               </button>
             </th>
             <th>Reliability</th>
@@ -73,8 +75,15 @@ export function CompTable({ sales }: { sales: Sale[] }) {
           </tr>
         </thead>
         <tbody>
-          {sorted.map((s) => (
-            <tr key={s.sold_id}>
+          {sorted.map((s) => {
+            const price = Number(s.sold_price_usd);
+            return (
+            <tr
+              key={s.sold_id}
+              data-hot={priceInRange(price, range)}
+              onMouseEnter={() => setRange({ lo: price, hi: price })}
+              onMouseLeave={() => setRange(null)}
+            >
               <td>
                 <SourceTag source={marketplaceSource(s.marketplace)} />
               </td>
@@ -91,7 +100,8 @@ export function CompTable({ sales }: { sales: Sale[] }) {
                 {s.raw_title}
               </td>
             </tr>
-          ))}
+            );
+          })}
         </tbody>
       </table>
     </div>

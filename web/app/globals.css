@@ -974,10 +974,23 @@ ul {
    Landing
    ========================================================================= */
 .hero {
+  position: relative;
+  padding-block: var(--space-9) var(--space-7);
+}
+.hero-motif {
+  position: absolute;
+  inset: calc(-1 * var(--space-5)) 0;
+  width: 100%;
+  height: calc(100% + var(--space-8));
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  padding-block: var(--space-9) var(--space-7);
 }
 .hero-thesis {
   font-family: var(--font-serif);
@@ -1547,6 +1560,59 @@ ul {
 }
 
 /* =========================================================================
+   Phase 6 motion + Phase 7 hardening: skip link, reveals, cross-highlight,
+   view transitions
+   ========================================================================= */
+.skip-link {
+  position: fixed;
+  top: calc(-1 * var(--space-9));
+  left: var(--space-4);
+  z-index: 100;
+  background: var(--surface-overlay);
+  color: var(--ink-primary);
+  border: 1px solid var(--blood);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--t-small);
+  transition: top var(--dur-fast) var(--ease-out);
+}
+.skip-link:focus {
+  top: var(--space-3);
+}
+/* The focusable main landmark should not draw a persistent ring after skip */
+.shell-main:focus {
+  outline: none;
+}
+
+/* Scroll reveal. Fail-safe: visible by default; hidden only when JS sets
+   data-shown="false" for below-the-fold content with motion allowed. */
+.reveal-io {
+  transition:
+    opacity var(--dur-reveal) var(--ease-editorial),
+    transform var(--dur-reveal) var(--ease-editorial);
+}
+.reveal-io[data-shown="false"] {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+/* Cross-highlight: a comp row lit by its distribution bucket, and the reverse */
+.comp-table tbody tr[data-hot="true"] {
+  background: var(--surface-overlay);
+  box-shadow: inset 2px 0 0 var(--blood);
+}
+/* On the lit row's brighter surface, raise dim metadata to clear AA contrast */
+.comp-table tbody tr[data-hot="true"] .ink-3 {
+  color: var(--ink-secondary);
+}
+
+/* View transitions: a restrained cross-fade, opacity only */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--dur-base);
+}
+
+/* =========================================================================
    Reduced motion: charts + counters show final state, grain off (2.4, 2.5)
    ========================================================================= */
 @media (prefers-reduced-motion: reduce) {
@@ -1560,5 +1626,16 @@ ul {
   }
   .grain {
     display: none;
+  }
+  /* reveals stay in place; count-ups and the hero motif render their final
+     state in their components' reduced-motion branches */
+  .reveal-io {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
   }
 }

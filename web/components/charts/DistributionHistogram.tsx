@@ -1,11 +1,18 @@
+"use client";
+
 import { scaleLinear } from "@visx/scale";
 import { histogramBins, median as medianOf } from "@/lib/stats";
 import { formatUsd } from "@/lib/format";
+import { useHighlight, binInRange } from "../highlight";
 
 // Histogram of individual sold prices. Reliable sales are solid ink; best-offer
-// sales stack on top with a hatch cue (never distinguished by color alone), so
-// a negotiated price is visible but marked. Median marker in oxblood. Pure SVG,
-// server-rendered. Reads the cleaned intermediate so it shares the mart fences.
+// sales stack on top with a hatch cue (never color alone), so a negotiated price
+// is visible but marked. Median marker in oxblood. Reads the cleaned
+// intermediate so it shares the mart fences.
+//
+// Interactive: hovering a bar highlights its bucket and, through the shared
+// highlight context, the matching rows in the comps table; when a comp row is
+// hovered, its bucket lights here. Degrades to a static chart with no provider.
 export function DistributionHistogram({
   points,
   binCount = 18,
@@ -13,6 +20,8 @@ export function DistributionHistogram({
   points: { price: number; bestOffer: boolean }[];
   binCount?: number;
 }) {
+  const { range, setRange } = useHighlight();
+
   if (points.length === 0) {
     return <p className="section-note">No individual sold prices to plot.</p>;
   }
@@ -53,7 +62,6 @@ export function DistributionHistogram({
           </pattern>
         </defs>
         <g transform={`translate(${m.left},${m.top})`}>
-          {/* count gridline at the top */}
           <line x1={0} x2={innerW} y1={0} y2={0} stroke="var(--rule)" strokeWidth={1} opacity={0.5} />
           <text x={-8} y={4} textAnchor="end" className="chart-tick">{ymax}</text>
           <text x={-8} y={innerH} textAnchor="end" className="chart-tick">0</text>
@@ -62,23 +70,46 @@ export function DistributionHistogram({
             const bw = single ? innerW * 0.3 : Math.max(1, x(b.x1) - x(b.x0) - gap);
             const relTop = y(b.reliable);
             const boTop = y(b.reliable + b.bestOffer);
+            const hot = binInRange(b.x0, b.x1, range);
+            const colX = single ? bx : x(b.x0);
+            const colW = single ? bw : Math.max(1, x(b.x1) - x(b.x0));
             return (
               <g key={i}>
                 {b.reliable > 0 ? (
-                  <rect x={bx} y={relTop} width={bw} height={innerH - relTop} fill="var(--ink-secondary)" opacity={0.7} />
+                  <rect
+                    x={bx}
+                    y={relTop}
+                    width={bw}
+                    height={innerH - relTop}
+                    fill="var(--ink-secondary)"
+                    opacity={hot ? 1 : 0.7}
+                  />
                 ) : null}
                 {b.bestOffer > 0 ? (
                   <rect x={bx} y={boTop} width={bw} height={relTop - boTop} fill="url(#hatch-bo)" />
                 ) : null}
+                {hot ? (
+                  <rect x={bx} y={boTop} width={bw} height={innerH - boTop} fill="none" stroke="var(--blood)" strokeWidth={1} />
+                ) : null}
+                {/* full-height transparent hover target for the whole column */}
+                {b.total > 0 ? (
+                  <rect
+                    x={colX}
+                    y={0}
+                    width={colW}
+                    height={innerH}
+                    fill="transparent"
+                    onMouseEnter={() => setRange({ lo: b.x0, hi: b.x1 })}
+                    onMouseLeave={() => setRange(null)}
+                  />
+                ) : null}
               </g>
             );
           })}
-          {/* median marker */}
           <line x1={x(med)} x2={x(med)} y1={-4} y2={innerH} stroke="var(--blood)" strokeWidth={2} />
           <text x={x(med)} y={-8} textAnchor="middle" className="chart-label chart-label--accent">
             {formatUsd(med)}
           </text>
-          {/* x axis */}
           <line x1={0} x2={innerW} y1={innerH} y2={innerH} stroke="var(--rule)" strokeWidth={1} />
           {ticks.map((t) => (
             <text key={t} x={x(t)} y={innerH + 22} textAnchor="middle" className="chart-tick">

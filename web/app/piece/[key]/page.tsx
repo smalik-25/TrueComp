@@ -15,6 +15,8 @@ import { VelocityStat } from "@/components/VelocityStat";
 import { MarkdownMagnitude } from "@/components/MarkdownMagnitude";
 import { SpreadPanel } from "@/components/SpreadPanel";
 import { CompTable } from "@/components/CompTable";
+import { HighlightProvider } from "@/components/highlight";
+import { Reveal } from "@/components/Reveal";
 
 // Marts refresh on the ingestion cron cadence, not per request, so pages are
 // statically generated and revalidated daily. This masks Neon cold starts.
@@ -89,32 +91,48 @@ export default async function PiecePage({ params }: { params: { key: string } })
 
         {piece.recommended_basis === "brand_archetype_fallback" ? <ThinDataNotice /> : null}
 
-        <SectionRule label="Price band" />
-        <PriceBands
-          medianUsd={piece.median_usd}
-          medianUsdReliable={piece.median_usd_reliable}
-          sales={sales}
-          nBestOffer={piece.n_best_offer}
-        />
+        <Reveal>
+          <SectionRule label="Price band" />
+          <PriceBands
+            medianUsd={piece.median_usd}
+            medianUsdReliable={piece.median_usd_reliable}
+            sales={sales}
+            nBestOffer={piece.n_best_offer}
+          />
+        </Reveal>
 
-        <SectionRule label="Distribution" />
-        {points.length > 0 ? (
-          <DistributionHistogram points={points} />
-        ) : (
-          <p className="section-note">No individual sold prices to plot for this piece.</p>
-        )}
+        {/* Distribution and the comps table share a hover context so a comp row
+            lights its bucket and a bucket lights its rows. */}
+        <HighlightProvider>
+          <Reveal>
+            <SectionRule label="Distribution" />
+            {points.length > 0 ? (
+              <DistributionHistogram points={points} />
+            ) : (
+              <p className="section-note">No individual sold prices to plot for this piece.</p>
+            )}
+          </Reveal>
 
-        <SectionRule label="Velocity" />
-        <VelocityStat velocity={velocity} />
+          <Reveal>
+            <SectionRule label="Velocity" />
+            <VelocityStat velocity={velocity} />
+          </Reveal>
 
-        <SectionRule label="Markdown" />
-        <MarkdownMagnitude markdown={markdown} />
+          <Reveal>
+            <SectionRule label="Markdown" />
+            <MarkdownMagnitude markdown={markdown} />
+          </Reveal>
 
-        <SectionRule label="Cross-marketplace spread" />
-        <SpreadPanel spread={spread} />
+          <Reveal>
+            <SectionRule label="Cross-marketplace spread" />
+            <SpreadPanel spread={spread} />
+          </Reveal>
 
-        <SectionRule label="The comps" />
-        <CompTable sales={sales} />
+          <Reveal>
+            <SectionRule label="The comps" />
+            <CompTable sales={sales} />
+          </Reveal>
+        </HighlightProvider>
       </article>
     </Container>
   );
