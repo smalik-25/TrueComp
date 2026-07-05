@@ -1,0 +1,49 @@
+name: ingest
+
+# Orchestrates ingestion on the pipeline side (Apify + GitHub Actions), never on
+# Vercel. Manual-trigger only. `mode: fixtures` (default) loads the committed
+# fixtures as a no-spend smoke test; `mode: live` runs the Apify actors and spends.
+# The weekly schedule stays commented until you want recurring live pulls.
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: fixtures (no spend) or live (spends)
+        type: choice
+        options: [fixtures, live]
+        default: fixtures
+      source:
+        description: source to ingest
+        type: choice
+        options: [all, grailed, ebay]
+        default: all
+      max_items:
+        description: per-query cap for live pulls
+        default: "50"
+  # schedule:
+  #   - cron: "0 6 * * 1"   # weekly, Mon 06:00 UTC; enable for recurring live pulls
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+
+      - name: Ingest
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          # public actor slugs, not secrets
+          APIFY_ACTOR_GRAILED: piotrv1001/grailed-listings-scraper
+          APIFY_ACTOR_EBAY: caffein.dev/ebay-sold-listings
+        run: |
+          if [ "${{ inputs.mode }}" = "live" ]; then
+            python -m ingestion.run --source ${{ inputs.source }} --live --max-items ${{ inputs.max_items }}
+          else
+            python -m ingestion.run --source ${{ inputs.source }} --from-fixtures
+          fi
