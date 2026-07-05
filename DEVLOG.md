@@ -1,0 +1,73 @@
+# DEVLOG
+
+## Phase 0: scaffold and schema
+
+Set up the skeleton and locked the schema before writing any pipeline code, because the schema is the thing that forces rework if I get it wrong.
+
+First I pulled the working docs and secrets out of the tree the public repo tracks. The env file and the four planning notes now sit at the root but are ignored, and I fixed the ignore file so two of them that were slipping through stay local along with anything zipped. This repo is public, so that check comes before anything else.
+
+Then the schema. I wrote it straight from the plan as runnable Postgres, one file, dimensions before facts. The two things I was careful about: the date split, where the sold date is null for Grailed and only eBay's ended date drives anything time-based, plus a lower-bound listing date for Grailed; and a per-source condition table, since Grailed and eBay describe wear with different words and I never want those joined on raw text. I applied it to Neon and confirmed the tables landed.
+
+One thing I already know will bite the adapter work if I forget it: the Grailed fixtures come in two shapes. The full export carries an id, sold flag, dates, strata, and category. The overview export is stripped to about ten fields with no id and no dates. The id is recoverable from the listing url, and every field the stripped shape lacks is nullable, so the schema holds without a change. The adapter will tolerate both and I will re-export the sparse ones in full when I pull the real corpus.
+
+A couple of local calls worth noting. psql is not on this machine, so I apply the schema through a small Python runner instead; the plain psql command still works for anyone who has it. And I keep dependencies in a project venv rather than the base environment.
+
+## Phase 1: ingestion and normalization
+
+Wrote one adapter per source, each an anti-corruption layer: raw rows in, canonical rows out, and nothing source-specific allowed past that line. The six data rules are enforced right at that boundary rather than cleaned up later.
+
+eBay was the fussy one. Prices arrive as strings, so I cast them at the edge and reject anything that will not parse instead of quietly turning it into a zero, which would poison every median downstream. Best-offer sales get flagged rather than dropped, since the shown price can understate the real one and the comps layer should be free to down-weight them. eBay carries the only trustworthy sold date, so it is the one source that feeds anything time-based; Grailed's sold timestamp is scrape time and stays null.
+
+Grailed needed to swallow both export shapes. The full run has an id, a sold flag, dates, strata and a category; the overview export has about ten fields and none of that. I recover the listing id from the url and treat overview rows as sold, since every Grailed run is a sold-only search and the sold price differs from the ask on most of them. When I pull the real corpus I will re-export those in full so nothing leans on that assumption.
+
+Condition and size are mapped per source and never joined on raw text, because Gently Used and Pre-Owned are not the same word and should not be forced together. The schema gives those two small dimensions no unique key, so the loader does an application-level get-or-create with an in-process cache to stay idempotent, while the facts dedup on their natural key with an on-conflict-do-nothing. I load the fact rows in a single batched statement rather than row by row, which drops a full corpus load from a crawl to a few seconds over the network.
+
+Loaded the fixtures into Neon and checked the rules held in the database, not just in the tests: Grailed has no sold date, eBay's dates span the real window, the best-offer count matches the sample, conditions stay split by source, and no price is null. Running the load twice inserts nothing the second time. Adapter tests run against the committed fixtures offline; the one test that touches Neon is opt-in so the default suite stays fast.
+
+## Phase 2: entity resolution, text first
+
+Built a curated taxonomy by hand (brand aliases, per-brand model names, an archetype vocabulary, season-code patterns) and a staged resolver on top of it. It reads brand first, then archetype and model, then the season code. A piece only forms when I have the brand plus at least an archetype or a model. A row that resolves to a brand and nothing else is left unresolved rather than folded into one giant per-brand bucket, because that bucket would poison every comp that reads it. I also treat the seed query as a brand prior, since each run is brand-specific and plenty of titles drop the brand and lead with a model instead.
+
+First numbers on the fixtures: brand resolves on every row, a piece gets assigned on about ninety one percent to start, model on about half, season on fifteen. eBay resolves deeper because its search term usually carries the model; Grailed carries the season codes. One piece matched across both marketplaces, a Rick Owens Ramones, which is the entire point of the exercise, though these fixtures barely overlap across sources so I cannot show that at scale yet.
+
+The rows that did not resolve are the interesting part. They are not brand misses. They are collaborations where the garment word belongs to the other label, plus garment words my vocabulary did not carry yet like vest and jersey, plus a few model names I had not seeded. That tells me the gap is coverage, not meaning, so title embeddings would not earn their weight here. I widened the curated vocabulary instead, which lifted the piece rate to about ninety five percent, and I am holding embeddings as a fallback for a larger real pull that shows a genuine semantic gap.
+
+Two things in the leftover rows are worth flagging rather than chasing. First, several are graphic or collection pieces with no garment word at all, which the curated route will never catch cleanly. Second, the eBay search for Carol Christian Poell returned womenswear from a different label spelled Carole Christian, and because I lean on the search term as a brand hint those got tagged with the archive brand even though the title never confirms it. They stay unresolved, so they do not reach any comp, but it is a reminder to tighten that seed query and to prefer a brand the title actually corroborates over one the search term merely implies. Adding a dress archetype to rescue them would be exactly wrong for a menswear project.
+
+## Phase 3: marts
+
+Built the analytics in dbt. Staging views sit over the canonical tables, one intermediate model joins each sale to its resolved piece and its marketplace, and four marts sit on top of that. The date split is enforced here and not just talked about: the comps mart reads every sold row from both sources because price level is undated, while the velocity mart is eBay only because eBay is the one source with a sold date I trust.
+
+The comps mart is the centre of gravity. Per piece it gives the median and the tenth and ninetieth percentiles, a count, and a grade from A to D driven by how many comps stand behind it. When a piece is too thin to trust on its own it falls back to a brand-and-archetype median, so a two-comp number is never dressed up as authoritative. It also carries a second median with best-offer sales removed, next to the all-in one, so the read layer can decide how much to trust the negotiated prices. On the seed data the deep pieces come out sensible: Rick Owens Ramones at fifty one comps and a three hundred dollar median graded A, Margiela GATs and Futures close behind. Most pieces are grade D on one or two comps, which is simply what archive resale looks like and the whole reason the grade sits next to every number.
+
+The cross-marketplace mart has a single row today, the Ramones again, and it shows Grailed running about seventeen percent under eBay for that shoe. Tiny sample, but the join works and it fills in as more pieces resolve across both sources. Velocity is honest about its ceiling: eBay sold comps carry no listing-start date, so there is no days-to-sell, only a sold-per-week rate over the window I actually observed. The markdown mart reads the Grailed ask-to-sold gap and lands where you would expect, low double digits.
+
+dbt tests cover the grain, the not-null keys, the allowed confidence grades, and referential integrity back to the piece table, and they pass. One snag on the way in: an unpinned dbt install pulled a core prerelease that could not load the postgres adapter, so I pinned it to a stable release.
+
+## Phase 4: the site
+
+Built the front end as a thin read layer and kept it that way. Server components query the marts straight from Neon and render; there is no logic in the browser and no logic in the frontend at all beyond formatting. Search takes you to a piece, and the piece page lays out the sold distribution as a histogram with the median and the tenth and ninetieth percentiles marked, the recommended list price with its confidence grade and a note on whether it came from the piece itself or the brand-and-archetype fallback, the eBay velocity, and the cross-marketplace spread.
+
+Every panel says what it cannot show. No dated eBay sales means no velocity block, a piece that only sold in one place means no spread, and the best-offer count sits right under the distribution next to the reliable-only median so nobody reads a negotiated price as a clean one.
+
+I verified this by running it against Neon, not by trusting the build. That mattered. The production build compiled with no complaints, but the running app threw a five hundred on any piece that had velocity, because Postgres returns date columns as date objects and React refuses to render those. A typecheck sails right past it; driving the actual page is what caught it. Casting the dates to text at the query fixed it and the Ramones page came up clean, three hundred median, Grailed running under eBay, the histogram with its percentile lines. I also moved off a Next version with a security advisory and pinned a lockfile so the deploy is reproducible. The deploy itself waits on the Vercel account, so everything is staged and handed over rather than pushed.
+
+## Phase 5: the price model, and being honest about it
+
+Trained a LightGBM regressor on the resolved sold rows. Features are the categoricals that survive the boundary, brand, archetype, model, season, marketplace, condition, and the best-offer flag, and the target is the USD price on a log scale. The part I cared about most was scoring it honestly. I used group cross-validation by piece, so the model is always judged on pieces it never saw. Splitting rows at random would let it memorize a piece's price and post a flattering number; grouping by piece is the test that actually means something.
+
+Every metric prints next to a plain brand-and-archetype median baseline, and the verdict is that the model does not beat the median in any way that matters. Mean absolute error lands around two hundred forty dollars either way, a single percent of lift. That is the truth on a few hundred sales that skew heavily to footwear with most pieces carrying one or two comps, and I would rather say it plainly than dress it up. The comps mart already recommends off that same median, so nothing is lost by admitting the model has no edge yet. Importance sits where you'd expect, marketplace and condition and brand carry it, while archetype and season add nothing because they are mostly redundant with brand or too thin to matter. The model earns its keep only after the corpus is broadened and deepened, which is the whole reason that broadening sits at the front of the plan.
+
+The arbitrage detector is written and tested but deliberately inert. It flags an active ask sitting under a piece's tenth percentile, and only for pieces with at least three comps so a single sale can never trigger it. It stays empty until an active-listing pull is approved, because that pull spends.
+
+## The first real corpus
+
+Pulled the real thing at last. Thirty archive and avant-garde menswear brands across both marketplaces, driven off the actual store brand list rather than my original dozen. Grailed runs one search per brand; eBay I had to learn the hard way, its actor rejects more than six keywords a run, so I chunk them. The seed of a few hundred rows became about thirty six hundred, and the pulled Grailed rows came back in the full twenty nine field shape, which confirms the stripped fixtures were only ever a bad export.
+
+I widened the taxonomy to the whole store list, near eighty brands, and switched brand matching to whole words so a three letter code like roa or lv cannot fire inside a longer word. The payoff is the part I care about. Resolution assigns a piece to about eighty six percent of rows, distinct pieces went from eighty six to four hundred ten, and pieces that sold on both marketplaces went from one to a hundred seventy two. That last number is the whole point of the project, the same piece priced in two places, and it only shows up once the corpus is wide enough for the sources to overlap. The archetype mix is no longer footwear, it spreads across tops, outerwear, denim, knit, pants and the rest, which was the reason for broadening in the first place. When the bigger corpus exposed more garment words my vocabulary lacked, loafers, chinos, suit, jumper, I added them; coverage, not meaning, the same call as before.
+
+One thing I will not dress up. At brand-plus-archetype granularity the cross-marketplace spreads are noisy. A nine dollar eBay item and a two hundred dollar Grailed item can both land in vetements accessory and manufacture a six hundred percent spread that means nothing, and the same low eBay noise drags some piece medians down. The median holds up better than the spread because it is a median, but the honest read is that these coarse fallback pieces conflate different objects. The fix is finer, model-level resolution and price sanity fences on the marts, and it is a deliberate next step rather than something I will paper over now.
+
+Kept the committed fixtures frozen so the test suite stays deterministic; the real corpus lives in data/raw, which is ignored, and in Neon. Tests and marts are green. The pull cost about what I said it would, in the low double digits.
+
+One environment note. This working copy lives in an iCloud-synced folder, and the Python environment sitting inside it made tool startup stall for minutes at a time while the sync layer woke cold files. I moved the environment out of the synced tree and turned off test-plugin autoloading, since there are no third-party plugins to load, and runs behave again.
