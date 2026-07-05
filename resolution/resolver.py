@@ -103,7 +103,12 @@ def resolve(raw_title: str | None, query_keyword: str | None) -> Resolution:
         return Resolution(None, None, None, None, None, "unresolved", None)
 
     archetype = match_archetype(text_norm, words)
-    model = match_model(brand, text_norm, words)
+    # Model comes from the TITLE only, never the seed keyword. A keyword like
+    # "rick owens ramones" otherwise stamps its model onto every result it
+    # returns (Geobaskets, Megalace, ...), fabricating a grab-bag "Ramones"
+    # piece. Brand and archetype still use the keyword as a prior.
+    title_words = set(title_norm.split())
+    model = match_model(brand, title_norm, title_words)
     if model and not archetype:
         archetype = taxonomy.MODEL_ARCHETYPE.get(model)
     season = taxonomy.season_code(raw_title)

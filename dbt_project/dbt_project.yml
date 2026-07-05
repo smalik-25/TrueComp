@@ -10,6 +10,16 @@ test-paths: ["tests"]
 target-path: "target"
 clean-targets: ["target", "dbt_packages"]
 
+# Mart-hardening knobs (tunable).
+vars:
+  price_floor_usd: 5          # drop only near-zero junk (stickers, key rings,
+                              # listing errors); kept low so it does not bias
+                              # medians upward or discard cheap legit sales
+  spread_ratio_cap: 2.0       # suppress a cross-marketplace spread unless the two
+                              # medians are within 2x of each other (symmetric):
+                              # a larger same-piece gap means contamination
+  min_spread_comps: 3         # cleaned comps required on BOTH marketplaces
+
 # staging/intermediate stay as views over the canonical tables;
 # marts materialize as tables the site reads.
 models:

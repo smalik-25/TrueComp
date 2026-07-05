@@ -128,12 +128,12 @@ export async function getMarkdown(id: number): Promise<Markdown | null> {
   return rows[0] ?? null;
 }
 
-// Individual sold prices for the distribution histogram. Reads the dbt
-// intermediate view, not the raw fact table.
+// Individual sold prices for the distribution histogram. Reads the cleaned
+// intermediate view so the histogram matches the mart medians (same fences).
 export function getSales(id: number): Promise<Sale[]> {
   return query<Sale>(
     `select sold_price_usd, marketplace, sold_date::text
-     from int_sold_enriched where piece_id = $1 order by sold_price_usd`,
+     from int_sold_clean where piece_id = $1 order by sold_price_usd`,
     [id],
   );
 }

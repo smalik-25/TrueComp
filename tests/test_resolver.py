@@ -92,3 +92,12 @@ def test_short_alias_matches_as_word():
     r = resolve("ROA Andreas hiking boot", "roa")
     assert r.brand_display == "Roa"
     assert r.archetype == "footwear"
+
+
+def test_model_comes_from_title_not_keyword():
+    # a "rick owens ramones" search that returns a Geobasket must NOT be tagged
+    # Ramones from the keyword; the title decides the model
+    r = resolve("Rick Owens Geobasket Black Milk Leather", "rick owens ramones")
+    assert r.brand_display == "Rick Owens"
+    assert r.model_name == "Geobasket"
+    assert r.model_name != "Ramones"

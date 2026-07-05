@@ -3,8 +3,7 @@
 -- itself is thin, so a two-comp median is never presented as authoritative.
 -- A best-offer-excluded median is exposed alongside the all-in median (DQ rule 3).
 with resolved as (
-    select * from {{ ref('int_sold_enriched') }}
-    where piece_id is not null
+    select * from {{ ref('int_sold_clean') }}
 ),
 
 by_piece as (

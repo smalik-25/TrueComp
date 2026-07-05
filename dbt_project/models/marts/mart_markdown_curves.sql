@@ -4,9 +4,8 @@
 -- becomes a small child table, flagged as a migration.)
 with with_markdown as (
     select *
-    from {{ ref('int_sold_enriched') }}
-    where piece_id is not null
-      and markdown_pct is not null
+    from {{ ref('int_sold_clean') }}
+    where markdown_pct is not null
 )
 
 select

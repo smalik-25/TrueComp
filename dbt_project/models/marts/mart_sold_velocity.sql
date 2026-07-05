@@ -4,9 +4,8 @@
 -- carry, so it is not derivable here. sold_per_week is the sell-through proxy.
 with ebay as (
     select *
-    from {{ ref('int_sold_enriched') }}
+    from {{ ref('int_sold_clean') }}
     where marketplace = 'ebay'
-      and piece_id is not null
       and sold_date is not null
 )
 
