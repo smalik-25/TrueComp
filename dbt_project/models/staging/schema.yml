@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_sold_listing
+    columns:
+      - name: sold_id
+        tests: [unique, not_null]
+      - name: sold_price_usd
+        tests: [not_null]
+  - name: stg_piece
+    columns:
+      - name: piece_id
+        tests: [unique, not_null]
+      - name: canonical_key
+        tests: [unique, not_null]
+  - name: stg_marketplace
+    columns:
+      - name: marketplace_id
+        tests: [unique, not_null]

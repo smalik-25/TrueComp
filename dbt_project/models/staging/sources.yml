@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: truecomp
+    description: Canonical star schema loaded by the Python pipeline.
+    schema: public
+    tables:
+      - name: fact_sold_listing
+      - name: dim_piece
+      - name: dim_brand
+      - name: dim_marketplace
+      - name: dim_condition
+      - name: dim_size
+      - name: fx_rate

@@ -1,0 +1,59 @@
+version: 2
+
+models:
+  - name: mart_piece_comps
+    description: Per-piece sold price level across both marketplaces, graded by n.
+    columns:
+      - name: piece_id
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_piece')
+              field: piece_id
+      - name: n_sold
+        tests: [not_null]
+      - name: confidence_grade
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['A', 'B', 'C', 'D']
+      - name: recommended_basis
+        tests:
+          - accepted_values:
+              values: ['piece', 'brand_archetype_fallback']
+
+  - name: mart_sold_velocity
+    description: eBay-only sell-through per piece from the trusted sold date.
+    columns:
+      - name: piece_id
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_piece')
+              field: piece_id
+      - name: n_sold_ebay
+        tests: [not_null]
+
+  - name: mart_markdown_curves
+    description: Markdown behaviour per piece from list_price / markdown_pct.
+    columns:
+      - name: piece_id
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_piece')
+              field: piece_id
+
+  - name: mart_cross_marketplace_spread
+    description: Per-piece median-by-marketplace and the spread, both sources present.
+    columns:
+      - name: piece_id
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_piece')
+              field: piece_id
