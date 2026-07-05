@@ -1,32 +1,29 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import "./globals.css";
+import { fraunces, inter, geistMono } from "./fonts";
+import { GrainOverlay } from "@/components/GrainOverlay";
+import { TopNav } from "@/components/TopNav";
+import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "TrueComp",
+  title: {
+    default: "ReliQuery",
+    template: "%s · ReliQuery",
+  },
   description:
-    "Sold comparables and repricing for luxury, archive, and avant-garde menswear.",
+    "Sold-comparable prices for archive and avant-garde menswear, resolved across marketplaces. Find what a piece is worth, not what it is listed at.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${fraunces.variable} ${inter.variable} ${geistMono.variable}`}>
       <body>
-        <header className="site-header">
-          <Link href="/" className="wordmark">
-            TrueComp
-          </Link>
-          <span className="tagline">archive menswear sold comps</span>
-        </header>
-        <main className="container">{children}</main>
-        <footer className="site-footer">
-          Prices are USD-normalized. Every figure traces to a dbt mart. Grailed
-          rows are undated (price level only); eBay drives the time-series.
-        </footer>
+        <GrainOverlay />
+        <div className="shell">
+          <TopNav />
+          <main className="shell-main">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

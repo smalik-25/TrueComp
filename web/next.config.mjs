@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // pg is a server-only dependency; keep it out of any client bundle.
+  // postgres.js is server-only; keep the driver out of every client bundle.
   experimental: {
-    serverComponentsExternalPackages: ["pg"],
+    serverComponentsExternalPackages: ["postgres"],
   },
 };
 
