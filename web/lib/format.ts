@@ -52,3 +52,25 @@ export function formatCount(
   const rounded = Math.round(n);
   return `${rounded.toLocaleString("en-US")} ${unit}${rounded === 1 ? "" : "s"}`;
 }
+
+// brand_norm is the normalized dedup token (lowercased), not a display name, so
+// it is title-cased for the serif. model_name already carries real casing (GAT,
+// Geobasket) and must be shown verbatim. A proper display-name mapping is a data
+// task; this is the honest read-layer default. Normalization artifacts such as
+// "number n ine" surface as-is rather than being silently rewritten.
+export function displayBrand(brand: string): string {
+  return brand
+    .split(" ")
+    .map((w) => (w ? w[0].toUpperCase() + w.slice(1) : w))
+    .join(" ");
+}
+
+// A ratio column (markdown, spread) rendered as a signed percent.
+export function formatRatioPct(
+  ratio: string | number | null | undefined,
+  opts: { sign?: boolean } = {},
+): string {
+  const n = toNumber(ratio);
+  if (n === null) return "n/a";
+  return formatPct(n * 100, { sign: opts.sign, digits: 0 });
+}

@@ -6,10 +6,14 @@ export function ArchetypeChip({
   archetype,
   count,
   active,
+  onClick,
 }: {
   archetype: string;
   count?: number | string;
   active?: boolean;
+  onClick?: () => void;
 }) {
-  return <Chip label={archetype} count={count} active={active} variant="archetype" />;
+  return (
+    <Chip label={archetype} count={count} active={active} variant="archetype" onClick={onClick} />
+  );
 }

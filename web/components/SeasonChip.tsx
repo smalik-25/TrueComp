@@ -7,10 +7,12 @@ export function SeasonChip({
   season,
   count,
   active,
+  onClick,
 }: {
   season: string;
   count?: number | string;
   active?: boolean;
+  onClick?: () => void;
 }) {
-  return <Chip label={season} count={count} active={active} variant="season" />;
+  return <Chip label={season} count={count} active={active} variant="season" onClick={onClick} />;
 }

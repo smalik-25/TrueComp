@@ -7,11 +7,13 @@ export function Button({
   href,
   primary = false,
   type = "button",
+  onClick,
 }: {
   children: React.ReactNode;
   href?: string;
   primary?: boolean;
   type?: "button" | "submit";
+  onClick?: () => void;
 }) {
   const className = `btn ${primary ? "btn--primary" : ""}`;
   if (href) {
@@ -22,7 +24,7 @@ export function Button({
     );
   }
   return (
-    <button type={type} className={className}>
+    <button type={type} className={className} onClick={onClick}>
       {children}
     </button>
   );

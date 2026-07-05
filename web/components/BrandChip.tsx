@@ -5,10 +5,12 @@ export function BrandChip({
   brand,
   count,
   active,
+  onClick,
 }: {
   brand: string;
   count?: number | string;
   active?: boolean;
+  onClick?: () => void;
 }) {
-  return <Chip label={brand} count={count} active={active} variant="brand" />;
+  return <Chip label={brand} count={count} active={active} variant="brand" onClick={onClick} />;
 }

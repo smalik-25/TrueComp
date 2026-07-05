@@ -2,27 +2,40 @@
 
 import { useState } from "react";
 
-const OPTIONS = [
+export const SORT_OPTIONS = [
   { value: "comps", label: "Most comps" },
   { value: "median-desc", label: "Median high to low" },
   { value: "median-asc", label: "Median low to high" },
   { value: "confidence", label: "Confidence" },
-];
+] as const;
+
+export type SortValue = (typeof SORT_OPTIONS)[number]["value"];
 
 // A compact sort control. The label is mono (a technical control), the options
-// sans. Presentational in Phase 1; it will drive the results grid later.
-export function SortControl() {
-  const [value, setValue] = useState(OPTIONS[0].value);
+// sans. Uncontrolled for the styleguide, controlled when given value + onChange.
+export function SortControl({
+  value,
+  onChange,
+}: {
+  value?: SortValue;
+  onChange?: (next: SortValue) => void;
+}) {
+  const [internal, setInternal] = useState<SortValue>(SORT_OPTIONS[0].value);
+  const current = value ?? internal;
+  const set = (next: SortValue) => {
+    if (value === undefined) setInternal(next);
+    onChange?.(next);
+  };
   return (
     <label className="sort-control">
       <span className="sort-label">Sort</span>
       <select
         className="sort-select"
-        value={value}
+        value={current}
         aria-label="Sort results"
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => set(e.target.value as SortValue)}
       >
-        {OPTIONS.map((o) => (
+        {SORT_OPTIONS.map((o) => (
           <option key={o.value} value={o.value}>
             {o.label}
           </option>

@@ -7,11 +7,13 @@ export function Chip({
   count,
   active = false,
   variant,
+  onClick,
 }: {
   label: React.ReactNode;
   count?: number | string;
   active?: boolean;
   variant?: "brand" | "archetype" | "season";
+  onClick?: () => void;
 }) {
   return (
     <button
@@ -19,6 +21,7 @@ export function Chip({
       className={`chip ${variant ? `chip--${variant}` : ""}`}
       data-active={active}
       aria-pressed={active}
+      onClick={onClick}
     >
       <span>{label}</span>
       {count !== undefined ? <span className="chip-count">{count}</span> : null}
