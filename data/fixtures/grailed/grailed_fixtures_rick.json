@@ -1,0 +1,3869 @@
+[{
+  "id": 98699575,
+  "url": "https://www.grailed.com/listings/98699575",
+  "title": "SS09 Rick Owens Silver Wax Detroit Cut Denim",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "bottoms",
+  "categoryPath": "bottoms.denim",
+  "size": "30",
+  "condition": "Gently Used",
+  "color": "beige",
+  "styles": [
+    "luxury"
+  ],
+  "price": 750,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 700,
+  "soldAt": "2026-07-04T22:04:09.383Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/583e56c3b66843d5895194c123b55b13",
+  "photoCount": 6,
+  "measurementCount": 0,
+  "heat": 4573.698915279942,
+  "followers": 54,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 18.99,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 50,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 50,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 50,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 50,
+      "enabled": true
+    },
+    "au": {
+      "amount": 50,
+      "enabled": true
+    },
+    "other": {
+      "amount": 50,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 6606104,
+    "username": "crybynoon",
+    "ratingAverage": 4.95067264573991,
+    "ratingCount": 223,
+    "totalBoughtAndSold": 541,
+    "trustedSeller": true,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/6606104/0b7a240a02194a31b64cba734a866f35"
+  },
+  "createdAt": "2026-06-15T20:53:37.000Z"
+},
+{
+  "id": 100008348,
+  "url": "https://www.grailed.com/listings/100008348",
+  "title": "Rick Owens Leather Mega Bumper",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "footwear",
+  "categoryPath": "footwear.hitop_sneakers",
+  "size": "10.5",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "luxury"
+  ],
+  "price": 698,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 475,
+  "soldAt": "2026-07-04T21:49:57.835Z",
+  "strata": "grailed",
+  "location": "Europe",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/ea24a530fccf4d44b1ebbe4243940f3d",
+  "photoCount": 15,
+  "measurementCount": 0,
+  "heat": 4584.902511574074,
+  "followers": 2,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 45,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 30,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 25,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 15,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 25,
+      "enabled": true
+    },
+    "au": {
+      "amount": 25,
+      "enabled": true
+    },
+    "other": {
+      "amount": 50,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 3968545,
+    "username": "manuwhoknows",
+    "ratingAverage": null,
+    "ratingCount": 0,
+    "totalBoughtAndSold": 2,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/3968545/ef6ec5a1723b473996f8113d9e1d5d3c"
+  },
+  "createdAt": "2026-07-04T19:53:50.000Z"
+},
+{
+  "id": 98550817,
+  "url": "https://www.grailed.com/listings/98550817",
+  "title": "Rick Owens Drkshdw Vegan Ramones",
+  "designer": "Rick Owens Drkshdw",
+  "designers": [
+    {
+      "id": 583,
+      "name": "Rick Owens Drkshdw"
+    }
+  ],
+  "department": "menswear",
+  "category": "footwear",
+  "categoryPath": "footwear.hitop_sneakers",
+  "size": "9",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 254,
+  "priceDrops": [
+    350,
+    315,
+    283,
+    254
+  ],
+  "sold": true,
+  "soldPrice": 225,
+  "soldAt": "2026-07-04T21:46:33.855Z",
+  "strata": "grailed",
+  "location": "Australia/NZ",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/b46e08e39eca401aaab64d03756d98ea",
+  "photoCount": 14,
+  "measurementCount": 0,
+  "heat": 4571.348548465257,
+  "followers": 44,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 20,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 20,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 30,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 30,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 20,
+      "enabled": true
+    },
+    "au": {
+      "amount": 10,
+      "enabled": true
+    },
+    "other": {
+      "amount": 50,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 15008526,
+    "username": "ceveronese",
+    "ratingAverage": 5,
+    "ratingCount": 4,
+    "totalBoughtAndSold": 17,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/15008526/ab47446eca30438d9af06054aa29d29f"
+  },
+  "createdAt": "2026-06-13T22:52:33.000Z"
+},
+{
+  "id": 97791059,
+  "url": "https://www.grailed.com/listings/97791059",
+  "title": "Rick Owens waxed Creatch Cargo",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "bottoms",
+  "categoryPath": "bottoms.casual_pants",
+  "size": "34",
+  "condition": "Used",
+  "color": "black",
+  "styles": [
+    "luxury"
+  ],
+  "price": 520,
+  "priceDrops": [
+    650,
+    520
+  ],
+  "sold": true,
+  "soldPrice": 500,
+  "soldAt": "2026-07-04T20:40:46.970Z",
+  "strata": "grailed",
+  "location": "Europe",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/442926b2a79a4d19b22a0f3606604137",
+  "photoCount": 5,
+  "measurementCount": 0,
+  "heat": 4555.81750679859,
+  "followers": 10,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 60,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 60,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 60,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 40,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 60,
+      "enabled": true
+    },
+    "au": {
+      "amount": 60,
+      "enabled": true
+    },
+    "other": {
+      "amount": 50,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 1168392,
+    "username": "schuermannsandro",
+    "ratingAverage": 5,
+    "ratingCount": 9,
+    "totalBoughtAndSold": 30,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/1168392/c63d6e41207840008d75d356ef227621"
+  },
+  "createdAt": "2026-05-31T10:07:51.000Z"
+},
+{
+  "id": 77670767,
+  "url": "https://www.grailed.com/listings/77670767",
+  "title": "TURBODRK HI Zebra size 41",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "footwear",
+  "categoryPath": "footwear.hitop_sneakers",
+  "size": "7.5",
+  "condition": "New",
+  "color": "white",
+  "styles": [],
+  "price": 150,
+  "priceDrops": [
+    300,
+    175,
+    150
+  ],
+  "sold": true,
+  "soldPrice": 135,
+  "soldAt": "2026-07-04T20:28:08.615Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/bfea70bbf6ab45d9a17201cf73e8fed2",
+  "photoCount": 10,
+  "measurementCount": 0,
+  "heat": 4134.947462404048,
+  "followers": 39,
+  "buyNow": false,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 0,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 0,
+      "enabled": false
+    },
+    "uk": {
+      "amount": 0,
+      "enabled": false
+    },
+    "eu": {
+      "amount": 0,
+      "enabled": false
+    },
+    "asia": {
+      "amount": 0,
+      "enabled": false
+    },
+    "au": {
+      "amount": 0,
+      "enabled": false
+    },
+    "other": {
+      "amount": 0,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 11074959,
+    "username": "risingink2248",
+    "ratingAverage": 5,
+    "ratingCount": 1,
+    "totalBoughtAndSold": 8,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/11074959/49183db336584565be1d9e07407a92a8"
+  },
+  "createdAt": "2025-04-03T14:07:35.000Z"
+},
+{
+  "id": 98690044,
+  "url": "https://www.grailed.com/listings/98690044",
+  "title": "Rick owens slab denim",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "bottoms",
+  "categoryPath": "bottoms.denim",
+  "size": "32",
+  "condition": "Used",
+  "color": "blue",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 196,
+  "priceDrops": [
+    300,
+    270,
+    243,
+    218,
+    196
+  ],
+  "sold": true,
+  "soldPrice": 170,
+  "soldAt": "2026-07-04T19:52:31.377Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/884f4d4e038b49408f29942fc2d691ad",
+  "photoCount": 8,
+  "measurementCount": 4,
+  "heat": 4575.217307949865,
+  "followers": 166,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 0,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 0,
+      "enabled": false
+    },
+    "uk": {
+      "amount": 0,
+      "enabled": false
+    },
+    "eu": {
+      "amount": 0,
+      "enabled": false
+    },
+    "asia": {
+      "amount": 0,
+      "enabled": false
+    },
+    "au": {
+      "amount": 0,
+      "enabled": false
+    },
+    "other": {
+      "amount": 0,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 1320106,
+    "username": "Shahmancuration",
+    "ratingAverage": 4.864864864864865,
+    "ratingCount": 37,
+    "totalBoughtAndSold": 203,
+    "trustedSeller": true,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/1320106/c9d64a2626064789b8024287eb76afd0"
+  },
+  "createdAt": "2026-06-15T18:27:05.000Z"
+},
+{
+  "id": 98714573,
+  "url": "https://www.grailed.com/listings/98714573",
+  "title": "Rick Owen’s Geobasket Black Milk Leather sz 44",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "footwear",
+  "categoryPath": "footwear.hitop_sneakers",
+  "size": "11",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [],
+  "price": 630,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 380,
+  "soldAt": "2026-07-04T19:05:45.781Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/117651e0e138436e82e03f9d3ebcf06d",
+  "photoCount": 10,
+  "measurementCount": 0,
+  "heat": 4574.021060039331,
+  "followers": 40,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 15.99,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 25,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 25,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 25,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 25,
+      "enabled": true
+    },
+    "au": {
+      "amount": 25,
+      "enabled": true
+    },
+    "other": {
+      "amount": 25,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 9610937,
+    "username": "Welcome2earthbasedfreestyle",
+    "ratingAverage": 5,
+    "ratingCount": 3,
+    "totalBoughtAndSold": 10,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/9610937/8634f1809c614dd88ecf1680767d2864"
+  },
+  "createdAt": "2026-06-16T15:00:58.000Z"
+},
+{
+  "id": 94876885,
+  "url": "https://www.grailed.com/listings/94876885",
+  "title": "Rick Owens DRKSHDW Drawstring Dropped Crotch Trousers J31",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "bottoms",
+  "categoryPath": "bottoms.casual_pants",
+  "size": "28",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 170,
+  "priceDrops": [
+    189,
+    170
+  ],
+  "sold": true,
+  "soldPrice": 170,
+  "soldAt": "2026-07-04T18:34:25.281Z",
+  "strata": "grailed",
+  "location": "Asia",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/bbee2e904f294740b14cb6f018d41e3d",
+  "photoCount": 6,
+  "measurementCount": 0,
+  "heat": 4498.355051681317,
+  "followers": 15,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 49,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 49,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 49,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 49,
+      "enabled": false
+    },
+    "asia": {
+      "amount": 29,
+      "enabled": true
+    },
+    "au": {
+      "amount": 49,
+      "enabled": true
+    },
+    "other": {
+      "amount": 49,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 1956842,
+    "username": "Oliver51",
+    "ratingAverage": 4.886029411764706,
+    "ratingCount": 272,
+    "totalBoughtAndSold": 1116,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/1956842/91924d57d0c3480290b6a909b7f39f54"
+  },
+  "createdAt": "2026-04-03T11:22:54.000Z"
+},
+{
+  "id": 99509910,
+  "url": "https://www.grailed.com/listings/99509910",
+  "title": "Rick Owens vintage sneaker vans",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "footwear",
+  "categoryPath": "footwear.lowtop_sneakers",
+  "size": "9",
+  "condition": "Gently Used",
+  "color": "beige",
+  "styles": [
+    "basics"
+  ],
+  "price": 895,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 700,
+  "soldAt": "2026-07-04T18:33:52.324Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/b327b736e36946d88dc07298f03bbe00",
+  "photoCount": 8,
+  "measurementCount": 0,
+  "heat": 4581.102541520813,
+  "followers": 5,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 33.98,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 0,
+      "enabled": false
+    },
+    "uk": {
+      "amount": 0,
+      "enabled": false
+    },
+    "eu": {
+      "amount": 0,
+      "enabled": false
+    },
+    "asia": {
+      "amount": 0,
+      "enabled": false
+    },
+    "au": {
+      "amount": 0,
+      "enabled": false
+    },
+    "other": {
+      "amount": 0,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 76506,
+    "username": "mattyjayyy_",
+    "ratingAverage": 4.955555555555556,
+    "ratingCount": 90,
+    "totalBoughtAndSold": 248,
+    "trustedSeller": true,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/76506/82be9456087c4cfbbe230f5af1c9677a"
+  },
+  "createdAt": "2026-06-26T16:58:18.000Z"
+},
+{
+  "id": 99929661,
+  "url": "https://www.grailed.com/listings/99929661",
+  "title": "drawstring pods shorts S",
+  "designer": "Rick Owens Drkshdw",
+  "designers": [
+    {
+      "id": 583,
+      "name": "Rick Owens Drkshdw"
+    }
+  ],
+  "department": "menswear",
+  "category": "bottoms",
+  "categoryPath": "bottoms.shorts",
+  "size": "32",
+  "condition": "Gently Used",
+  "color": "orange",
+  "styles": [
+    "luxury"
+  ],
+  "price": 330,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 280,
+  "soldAt": "2026-07-04T18:24:49.688Z",
+  "strata": "grailed",
+  "location": "Asia",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/26a962474f1d4254be0e90cb8bd8276f",
+  "photoCount": 6,
+  "measurementCount": 4,
+  "heat": 4587.134509113405,
+  "followers": 5,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 40,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 35,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 35,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 35,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 26,
+      "enabled": true
+    },
+    "au": {
+      "amount": 35,
+      "enabled": true
+    },
+    "other": {
+      "amount": 50,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 18962,
+    "username": "pb_5",
+    "ratingAverage": 4.923076923076923,
+    "ratingCount": 13,
+    "totalBoughtAndSold": 36,
+    "trustedSeller": true,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/18962/0d5587a714704356b761a7930c7e4b4b"
+  },
+  "createdAt": "2026-07-02T17:44:20.000Z"
+},
+{
+  "id": 98622826,
+  "url": "https://www.grailed.com/listings/98622826",
+  "title": "BRAND NEW Rick Owens SS20 \"Tecuatl\" Mainline Bauhaus Cargo",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "bottoms",
+  "categoryPath": "bottoms.casual_pants",
+  "size": "32",
+  "condition": "New",
+  "color": "black",
+  "styles": [
+    "luxury"
+  ],
+  "price": 566,
+  "priceDrops": [
+    629,
+    566
+  ],
+  "sold": true,
+  "soldPrice": 566,
+  "soldAt": "2026-07-04T18:13:42.389Z",
+  "strata": "grailed",
+  "location": "Australia/NZ",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/d0fbdffdeb89456985eb90b1b9f6b24e",
+  "photoCount": 3,
+  "measurementCount": 6,
+  "heat": 4570.104025000721,
+  "followers": 12,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 39,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 39,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 39,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 39,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 39,
+      "enabled": true
+    },
+    "au": {
+      "amount": 29,
+      "enabled": true
+    },
+    "other": {
+      "amount": 39,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 261556,
+    "username": "undercoevr",
+    "ratingAverage": 5,
+    "ratingCount": 7,
+    "totalBoughtAndSold": 24,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/261556/75433185c7a64e1fa37232a0dc82939d"
+  },
+  "createdAt": "2026-06-14T10:41:40.000Z"
+},
+{
+  "id": 100001127,
+  "url": "https://www.grailed.com/listings/100001127",
+  "title": "SS23 Rick Owens DRKSHDW \"EDFU\" Eyelet Pullover Hoodie",
+  "designer": "Rick Owens Drkshdw",
+  "designers": [
+    {
+      "id": 583,
+      "name": "Rick Owens Drkshdw"
+    }
+  ],
+  "department": "menswear",
+  "category": "tops",
+  "categoryPath": "tops.sweatshirts_hoodies",
+  "size": "l",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 215,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 200,
+  "soldAt": "2026-07-04T18:04:00.634Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/f592ab053732496382df5942ebbbd695",
+  "photoCount": 11,
+  "measurementCount": 4,
+  "heat": 4585.7796875,
+  "followers": 1,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 0,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 30,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 40,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 40,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 60,
+      "enabled": true
+    },
+    "au": {
+      "amount": 60,
+      "enabled": true
+    },
+    "other": {
+      "amount": 60,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 1534552,
+    "username": "rokuz",
+    "ratingAverage": 4.978328173374613,
+    "ratingCount": 323,
+    "totalBoughtAndSold": 986,
+    "trustedSeller": true,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/1534552/c98ed4b975fb4075b44a526b6d3e9898"
+  },
+  "createdAt": "2026-07-03T16:56:58.000Z"
+},
+{
+  "id": 98305852,
+  "url": "https://www.grailed.com/listings/98305852",
+  "title": "RARE Rick Owens AW14 Shearling High Top Ramones",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "footwear",
+  "categoryPath": "footwear.hitop_sneakers",
+  "size": "11",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "vintage"
+  ],
+  "price": 688,
+  "priceDrops": [
+    765,
+    688
+  ],
+  "sold": true,
+  "soldPrice": 550,
+  "soldAt": "2026-07-04T17:51:55.072Z",
+  "strata": "grailed",
+  "location": "Europe",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/63bda90099e7467381146b879cb8a6d6",
+  "photoCount": 18,
+  "measurementCount": 0,
+  "heat": 4562.988298611112,
+  "followers": 91,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 30,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 30,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 30,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 30,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 30,
+      "enabled": true
+    },
+    "au": {
+      "amount": 30,
+      "enabled": true
+    },
+    "other": {
+      "amount": 30,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 5093948,
+    "username": "nekodzava",
+    "ratingAverage": 4.922580645161291,
+    "ratingCount": 620,
+    "totalBoughtAndSold": 1510,
+    "trustedSeller": true,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/5093948/db4254e4cd4441528a37c0aec2a822c8"
+  },
+  "createdAt": "2026-06-08T21:57:22.000Z"
+},
+{
+  "id": 99787186,
+  "url": "https://www.grailed.com/listings/99787186",
+  "title": "Rick Owens Mega Bumper Geobasket",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "footwear",
+  "categoryPath": "footwear.hitop_sneakers",
+  "size": "7",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "luxury"
+  ],
+  "price": 450,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 350,
+  "soldAt": "2026-07-04T17:15:45.971Z",
+  "strata": "grailed",
+  "location": "Other",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/fd14c003a08d45e680353b932a7e24c7",
+  "photoCount": 13,
+  "measurementCount": 0,
+  "heat": 4586.549490644067,
+  "followers": 13,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 45,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 45,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 0,
+      "enabled": false
+    },
+    "eu": {
+      "amount": 0,
+      "enabled": false
+    },
+    "asia": {
+      "amount": 0,
+      "enabled": false
+    },
+    "au": {
+      "amount": 0,
+      "enabled": false
+    },
+    "other": {
+      "amount": 0,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 7484296,
+    "username": "vintagevillage_sv",
+    "ratingAverage": 5,
+    "ratingCount": 24,
+    "totalBoughtAndSold": 39,
+    "trustedSeller": true,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/7484296/c3ccea5f9434450faf9eeea2bb9aed96"
+  },
+  "createdAt": "2026-06-30T18:36:51.000Z"
+},
+{
+  "id": 97906926,
+  "url": "https://www.grailed.com/listings/97906926",
+  "title": "Rick Owens berlin sweatpants dust",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "bottoms",
+  "categoryPath": "bottoms.sweatpants_joggers",
+  "size": "34",
+  "condition": "Gently Used",
+  "color": "beige",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 270,
+  "priceDrops": [
+    300,
+    270
+  ],
+  "sold": true,
+  "soldPrice": 225,
+  "soldAt": "2026-07-04T16:55:13.979Z",
+  "strata": "grailed",
+  "location": "Europe",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/c5a5e913903b4bf9bc1362dec110184a",
+  "photoCount": 6,
+  "measurementCount": 0,
+  "heat": 4556.895793056998,
+  "followers": 36,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 60,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 30,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 15,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 15,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 50,
+      "enabled": true
+    },
+    "au": {
+      "amount": 50,
+      "enabled": true
+    },
+    "other": {
+      "amount": 25,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 9827094,
+    "username": "Checkh1esniper",
+    "ratingAverage": null,
+    "ratingCount": 0,
+    "totalBoughtAndSold": 3,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/9827094/3f00d25ab601490daf446fbeef4e400e"
+  },
+  "createdAt": "2026-06-02T15:39:28.000Z"
+},
+{
+  "id": 95688732,
+  "url": "https://www.grailed.com/listings/95688732",
+  "title": "Rick Owens bozo boots size 8 fits like size 9",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "footwear",
+  "categoryPath": "footwear.boots",
+  "size": "8",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 380,
+  "priceDrops": [
+    600,
+    540,
+    486,
+    475,
+    425,
+    380
+  ],
+  "sold": true,
+  "soldPrice": 325,
+  "soldAt": "2026-07-04T16:37:55.669Z",
+  "strata": "grailed",
+  "location": "Canada",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/2b0838bf4b6441c7936727e6f49fd24d",
+  "photoCount": 15,
+  "measurementCount": 0,
+  "heat": 4517.911924539201,
+  "followers": 54,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 23.99,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 55,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 0,
+      "enabled": false
+    },
+    "eu": {
+      "amount": 0,
+      "enabled": false
+    },
+    "asia": {
+      "amount": 0,
+      "enabled": false
+    },
+    "au": {
+      "amount": 0,
+      "enabled": false
+    },
+    "other": {
+      "amount": 75,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 1467530,
+    "username": "Bapewithjake",
+    "ratingAverage": 4.842857142857142,
+    "ratingCount": 70,
+    "totalBoughtAndSold": 131,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/1467530/a4073ae5e13247d4b499303561d26741"
+  },
+  "createdAt": "2026-04-21T02:00:21.000Z"
+},
+{
+  "id": 97252236,
+  "url": "https://www.grailed.com/listings/97252236",
+  "title": "Rick Owens 2016 Slave Jacket",
+  "designer": "Rick Owens Drkshdw",
+  "designers": [
+    {
+      "id": 583,
+      "name": "Rick Owens Drkshdw"
+    }
+  ],
+  "department": "menswear",
+  "category": "outerwear",
+  "categoryPath": "outerwear.light_jackets",
+  "size": "l",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 850,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 600,
+  "soldAt": "2026-07-04T16:19:50.362Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/7abf19ef8b1d4cdcbd197c82ff1ac8c4",
+  "photoCount": 9,
+  "measurementCount": 2,
+  "heat": 4546.567579766785,
+  "followers": 74,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 18.99,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 0,
+      "enabled": false
+    },
+    "uk": {
+      "amount": 0,
+      "enabled": false
+    },
+    "eu": {
+      "amount": 0,
+      "enabled": false
+    },
+    "asia": {
+      "amount": 0,
+      "enabled": false
+    },
+    "au": {
+      "amount": 0,
+      "enabled": false
+    },
+    "other": {
+      "amount": 0,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 509278,
+    "username": "daltondonofrio",
+    "ratingAverage": 4.921505376344086,
+    "ratingCount": 155,
+    "totalBoughtAndSold": 416,
+    "trustedSeller": true,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/509278/f3e705e964604b7d84bcb43536ce0d70"
+  },
+  "createdAt": "2026-05-22T00:49:57.000Z"
+},
+{
+  "id": 95983644,
+  "url": "https://www.grailed.com/listings/95983644",
+  "title": "Rick Owens Leather Megatooth Boots",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "footwear",
+  "categoryPath": "footwear.boots",
+  "size": "7",
+  "condition": "Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 1150,
+  "priceDrops": [
+    1300,
+    1170,
+    1150
+  ],
+  "sold": true,
+  "soldPrice": 950,
+  "soldAt": "2026-07-04T15:36:55.728Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/5371f6ce1fbc44839d0289c40a2555cc",
+  "photoCount": 5,
+  "measurementCount": 0,
+  "heat": 4524.775528378617,
+  "followers": 33,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 23.99,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 40,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 40,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 45,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 50,
+      "enabled": true
+    },
+    "au": {
+      "amount": 70,
+      "enabled": true
+    },
+    "other": {
+      "amount": 10,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 13114058,
+    "username": "2myth",
+    "ratingAverage": 5,
+    "ratingCount": 5,
+    "totalBoughtAndSold": 19,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/13114058/36c796ed565a4b06b8f0ddec128a7738"
+  },
+  "createdAt": "2026-04-28T15:47:03.000Z"
+},
+{
+  "id": 98311262,
+  "url": "https://www.grailed.com/listings/98311262",
+  "title": "Vintage Ramones 2008 Punk Rock T-Shirt Avant Garde Style",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "tops",
+  "categoryPath": "tops.short_sleeve_shirts",
+  "size": "s",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 115,
+  "priceDrops": [
+    150,
+    135,
+    121,
+    115
+  ],
+  "sold": true,
+  "soldPrice": 115,
+  "soldAt": "2026-07-04T15:25:50.778Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/2bc37be23ffc408dae5f3bb2752b0619",
+  "photoCount": 21,
+  "measurementCount": 3,
+  "heat": 4568.404537502885,
+  "followers": 170,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 4.99,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 50,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 50,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 12,
+      "enabled": false
+    },
+    "asia": {
+      "amount": 50,
+      "enabled": true
+    },
+    "au": {
+      "amount": 50,
+      "enabled": true
+    },
+    "other": {
+      "amount": 50,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 17339731,
+    "username": "Yslstan",
+    "ratingAverage": 5,
+    "ratingCount": 4,
+    "totalBoughtAndSold": 10,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/17339731/73e56ace0b944fb7a8435ff2aa7d014c"
+  },
+  "createdAt": "2026-06-08T23:47:22.000Z"
+},
+{
+  "id": 99702331,
+  "url": "https://www.grailed.com/listings/99702331",
+  "title": "SS23 ,,Edfu\" Rick Owens mountain wizard hoodie",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "tops",
+  "categoryPath": "tops.sweatshirts_hoodies",
+  "size": "m",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 450,
+  "priceDrops": [
+    500,
+    475,
+    450
+  ],
+  "sold": true,
+  "soldPrice": 375,
+  "soldAt": "2026-07-04T14:54:08.214Z",
+  "strata": "grailed",
+  "location": "Europe",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/b4ad0464a8b34d62a0e45465abe6868d",
+  "photoCount": 6,
+  "measurementCount": 3,
+  "heat": 4583.020689668961,
+  "followers": 10,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 55,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 55,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 40,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 35,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 40,
+      "enabled": true
+    },
+    "au": {
+      "amount": 65,
+      "enabled": true
+    },
+    "other": {
+      "amount": 0,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 18903530,
+    "username": "niwraaach",
+    "ratingAverage": null,
+    "ratingCount": 0,
+    "totalBoughtAndSold": 1,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/18903530/12085ba60d94418baecbb70f9a020e39"
+  },
+  "createdAt": "2026-06-30T15:00:26.000Z"
+},
+{
+  "id": 99622781,
+  "url": "https://www.grailed.com/listings/99622781",
+  "title": "Rick Owen Vans High Top",
+  "designer": "Rick Owens Drkshdw",
+  "designers": [
+    {
+      "id": 583,
+      "name": "Rick Owens Drkshdw"
+    }
+  ],
+  "department": "menswear",
+  "category": "footwear",
+  "categoryPath": "footwear.hitop_sneakers",
+  "size": "11",
+  "condition": "Used",
+  "color": "black",
+  "styles": [
+    "streetwear"
+  ],
+  "price": 400,
+  "priceDrops": [
+    500,
+    400
+  ],
+  "sold": true,
+  "soldPrice": 400,
+  "soldAt": "2026-07-04T14:52:41.160Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/5f5234ee72b64c3b88485c4e9334b28c",
+  "photoCount": 8,
+  "measurementCount": 0,
+  "heat": 4585.756736111111,
+  "followers": 32,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 0,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 50,
+      "enabled": false
+    },
+    "uk": {
+      "amount": 50,
+      "enabled": false
+    },
+    "eu": {
+      "amount": 50,
+      "enabled": false
+    },
+    "asia": {
+      "amount": 50,
+      "enabled": false
+    },
+    "au": {
+      "amount": 50,
+      "enabled": false
+    },
+    "other": {
+      "amount": 50,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 16822318,
+    "username": "Ivanskii__",
+    "ratingAverage": 5,
+    "ratingCount": 3,
+    "totalBoughtAndSold": 9,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/16822318/69fbcc0c367c4106a2b6d885fdf9a1c0"
+  },
+  "createdAt": "2026-06-28T16:23:55.000Z"
+},
+{
+  "id": 91818728,
+  "url": "https://www.grailed.com/listings/91818728",
+  "title": "Rick Owens Mainline Oversized Cotton Vest",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "tops",
+  "categoryPath": "tops.sleeveless",
+  "size": "xs",
+  "condition": "Gently Used",
+  "color": "white",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 159,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 105,
+  "soldAt": "2026-07-04T13:45:59.905Z",
+  "strata": "grailed",
+  "location": "Asia",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/f7bb12227b7944d1bd388622bed12380",
+  "photoCount": 5,
+  "measurementCount": 0,
+  "heat": 4438.820747236313,
+  "followers": 32,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 59,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 59,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 59,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 59,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 59,
+      "enabled": true
+    },
+    "au": {
+      "amount": 59,
+      "enabled": true
+    },
+    "other": {
+      "amount": 59,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 1956842,
+    "username": "Oliver51",
+    "ratingAverage": 4.886029411764706,
+    "ratingCount": 272,
+    "totalBoughtAndSold": 1114,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/1956842/91924d57d0c3480290b6a909b7f39f54"
+  },
+  "createdAt": "2026-02-01T19:02:03.000Z"
+},
+{
+  "id": 83135991,
+  "url": "https://www.grailed.com/listings/83135991",
+  "title": "RICK OWENS LONGSLEEVE",
+  "designer": "Rick Owens Drkshdw",
+  "designers": [
+    {
+      "id": 583,
+      "name": "Rick Owens Drkshdw"
+    }
+  ],
+  "department": "menswear",
+  "category": "tops",
+  "categoryPath": "tops.long_sleeve_shirts",
+  "size": "s",
+  "condition": "Gently Used",
+  "color": "brown",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 81,
+  "priceDrops": [
+    100,
+    90,
+    81
+  ],
+  "sold": true,
+  "soldPrice": 65,
+  "soldAt": "2026-07-04T13:00:46.124Z",
+  "strata": "grailed",
+  "location": "United Kingdom",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/7a6f295100d24281bd9440a607a5c2e9",
+  "photoCount": 3,
+  "measurementCount": 0,
+  "heat": 4257.180710151806,
+  "followers": 77,
+  "buyNow": false,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 30,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 30,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 5,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 25,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 30,
+      "enabled": true
+    },
+    "au": {
+      "amount": 30,
+      "enabled": true
+    },
+    "other": {
+      "amount": 30,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 4490910,
+    "username": "byz",
+    "ratingAverage": 4.962962962962963,
+    "ratingCount": 27,
+    "totalBoughtAndSold": 144,
+    "trustedSeller": true,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/4490910/4064d955c61d47658d86f74ba01b98d8"
+  },
+  "createdAt": "2025-08-02T20:10:16.000Z"
+},
+{
+  "id": 97398781,
+  "url": "https://www.grailed.com/listings/97398781",
+  "title": "FW25 Alice studded blazer",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "tailoring",
+  "categoryPath": "tailoring.blazers",
+  "size": "46r",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 1475,
+  "priceDrops": [
+    2500,
+    2250,
+    2025,
+    1822,
+    1639,
+    1475
+  ],
+  "sold": true,
+  "soldPrice": 1400,
+  "soldAt": "2026-07-04T12:42:40.882Z",
+  "strata": "grailed",
+  "location": "Europe",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/ebdccc119ca34da9b6d8d38cdf4c89bd",
+  "photoCount": 7,
+  "measurementCount": 0,
+  "heat": 4550.480729069993,
+  "followers": 26,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 50,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 40,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 40,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 25,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 45,
+      "enabled": true
+    },
+    "au": {
+      "amount": 45,
+      "enabled": true
+    },
+    "other": {
+      "amount": 40,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 88762,
+    "username": "Fear_Death_By_Water",
+    "ratingAverage": 4.988235294117647,
+    "ratingCount": 85,
+    "totalBoughtAndSold": 175,
+    "trustedSeller": true,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/88762/96fccef788b14935b1509131119ac9d3"
+  },
+  "createdAt": "2026-05-24T16:57:50.000Z"
+},
+{
+  "id": 98445513,
+  "url": "https://www.grailed.com/listings/98445513",
+  "title": "Rick Owens Heavy Cotton TE Pants",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "bottoms",
+  "categoryPath": "bottoms.casual_pants",
+  "size": "30",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 216,
+  "priceDrops": [
+    300,
+    240,
+    216
+  ],
+  "sold": true,
+  "soldPrice": 216,
+  "soldAt": "2026-07-04T11:44:44.654Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/ae6e11e9552a4b81acf7828f6a8bb1e1",
+  "photoCount": 5,
+  "measurementCount": 4,
+  "heat": 4565.793307326428,
+  "followers": 46,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 0,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 20,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 25,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 25,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 25,
+      "enabled": true
+    },
+    "au": {
+      "amount": 25,
+      "enabled": true
+    },
+    "other": {
+      "amount": 25,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 148158,
+    "username": "deancassill",
+    "ratingAverage": null,
+    "ratingCount": 0,
+    "totalBoughtAndSold": 14,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/148158/674bde3dc1764b80b28b8265d5084e77"
+  },
+  "createdAt": "2026-06-11T04:42:39.000Z"
+},
+{
+  "id": 100002916,
+  "url": "https://www.grailed.com/listings/100002916",
+  "title": "Rick Owens SS17 Bomber",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "outerwear",
+  "categoryPath": "outerwear.bombers",
+  "size": "m",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 250,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 250,
+  "soldAt": "2026-07-04T11:22:21.202Z",
+  "strata": "grailed",
+  "location": "Asia",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/bf232137abce4848a793cac5afeb27c1",
+  "photoCount": 4,
+  "measurementCount": 4,
+  "heat": 4588.131858650442,
+  "followers": 5,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 30,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 30,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 30,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 45,
+      "enabled": false
+    },
+    "asia": {
+      "amount": 55,
+      "enabled": false
+    },
+    "au": {
+      "amount": 30,
+      "enabled": true
+    },
+    "other": {
+      "amount": 25,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 12868721,
+    "username": "fate_archive_",
+    "ratingAverage": 4.897435897435898,
+    "ratingCount": 39,
+    "totalBoughtAndSold": 70,
+    "trustedSeller": true,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/12868721/12486d28efd04e3eb7ec993884ae2706"
+  },
+  "createdAt": "2026-07-03T17:40:31.000Z"
+},
+{
+  "id": 98746094,
+  "url": "https://www.grailed.com/listings/98746094",
+  "title": "s/s 2021 wool ribbed knit sweater!!",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "tops",
+  "categoryPath": "tops.sweaters_knitwear",
+  "size": "l",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 157,
+  "priceDrops": [
+    175,
+    157
+  ],
+  "sold": true,
+  "soldPrice": 140,
+  "soldAt": "2026-07-04T10:59:39.986Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/4b0432375a3e419bb1c13ca7c32b91b6",
+  "photoCount": 9,
+  "measurementCount": 3,
+  "heat": 4575.251751366219,
+  "followers": 87,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 19.98,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 20,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 20,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 20,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 20,
+      "enabled": true
+    },
+    "au": {
+      "amount": 20,
+      "enabled": true
+    },
+    "other": {
+      "amount": 20,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 2183138,
+    "username": "ummmmm_j_i",
+    "ratingAverage": 4.800699300699301,
+    "ratingCount": 858,
+    "totalBoughtAndSold": 1723,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/2183138/dacd6fc5593e4343a0205397e7af8240"
+  },
+  "createdAt": "2026-06-16T17:38:54.000Z"
+},
+{
+  "id": 98756387,
+  "url": "https://www.grailed.com/listings/98756387",
+  "title": "Last Rick Owens Concordians Trunk Belt",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "accessories",
+  "categoryPath": "accessories.belts",
+  "size": "one size",
+  "condition": "New",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 350,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 275,
+  "soldAt": "2026-07-04T10:07:26.109Z",
+  "strata": "grailed",
+  "location": "Europe",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/6b134ef4ebc74dbbb6e6c48f961ce587",
+  "photoCount": 3,
+  "measurementCount": 0,
+  "heat": 4571.514858334054,
+  "followers": 6,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 30,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 30,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 20,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 20,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 25,
+      "enabled": true
+    },
+    "au": {
+      "amount": 25,
+      "enabled": true
+    },
+    "other": {
+      "amount": 25,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 8287704,
+    "username": "ivandychkaaaaa",
+    "ratingAverage": 4.828389830508475,
+    "ratingCount": 472,
+    "totalBoughtAndSold": 1670,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/8287704/981a9ac6b870405988301e5d138b5ed3"
+  },
+  "createdAt": "2026-06-16T20:33:16.000Z"
+},
+{
+  "id": 95190572,
+  "url": "https://www.grailed.com/listings/95190572",
+  "title": "Rick Owens 11SS 'Anthem' Detroit Pants",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "bottoms",
+  "categoryPath": "bottoms.casual_pants",
+  "size": "30",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 300,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 300,
+  "soldAt": "2026-07-04T08:50:56.971Z",
+  "strata": "grailed",
+  "location": "Asia",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/fd40851461f2406db6482fe867e5aaae",
+  "photoCount": 9,
+  "measurementCount": 0,
+  "heat": 4507.90687097121,
+  "followers": 66,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 60,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 60,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 60,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 60,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 35,
+      "enabled": true
+    },
+    "au": {
+      "amount": 40,
+      "enabled": true
+    },
+    "other": {
+      "amount": 60,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 14693031,
+    "username": "bauhausseoul",
+    "ratingAverage": 5,
+    "ratingCount": 6,
+    "totalBoughtAndSold": 42,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/14693031/37a4108e2db14f9f946427bf49b56be7"
+  },
+  "createdAt": "2026-04-10T18:56:11.000Z"
+},
+{
+  "id": 94502399,
+  "url": "https://www.grailed.com/listings/94502399",
+  "title": "Rick Owens Drkshdw Bomber Jacket",
+  "designer": "Rick Owens Drkshdw",
+  "designers": [
+    {
+      "id": 583,
+      "name": "Rick Owens Drkshdw"
+    }
+  ],
+  "department": "menswear",
+  "category": "outerwear",
+  "categoryPath": "outerwear.bombers",
+  "size": "s",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "basics"
+  ],
+  "price": 330,
+  "priceDrops": [
+    370,
+    333,
+    330
+  ],
+  "sold": true,
+  "soldPrice": 315,
+  "soldAt": "2026-07-04T07:52:18.108Z",
+  "strata": "grailed",
+  "location": "Canada",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/8e971ea0ae2d46e89ea6f9b0e7a77285",
+  "photoCount": 7,
+  "measurementCount": 5,
+  "heat": 4493.450534430515,
+  "followers": 25,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 23.99,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 20,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 45,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 45,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 55,
+      "enabled": true
+    },
+    "au": {
+      "amount": 55,
+      "enabled": true
+    },
+    "other": {
+      "amount": 60,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 17398593,
+    "username": "Deathorinsanity",
+    "ratingAverage": 5,
+    "ratingCount": 2,
+    "totalBoughtAndSold": 6,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/17398593/9fff95e1cb8143ffbbcd97eb9eca90c8"
+  },
+  "createdAt": "2026-03-28T17:35:50.000Z"
+},
+{
+  "id": 97823711,
+  "url": "https://www.grailed.com/listings/97823711",
+  "title": "Rick Owens SS17 “WALRUS” Dinge Ramones",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "footwear",
+  "categoryPath": "footwear.hitop_sneakers",
+  "size": "11.5",
+  "condition": "Used",
+  "color": "black",
+  "styles": [
+    "luxury"
+  ],
+  "price": 575,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 400,
+  "soldAt": "2026-07-04T07:19:53.605Z",
+  "strata": "grailed",
+  "location": "Canada",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/2a6586974b0c4d1e8f77ce6f00832a18",
+  "photoCount": 7,
+  "measurementCount": 0,
+  "heat": 4558.71524629846,
+  "followers": 54,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 18.99,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 15,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 20,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 20,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 20,
+      "enabled": true
+    },
+    "au": {
+      "amount": 20,
+      "enabled": true
+    },
+    "other": {
+      "amount": 20,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 1936526,
+    "username": "nightinnovember",
+    "ratingAverage": 5,
+    "ratingCount": 2,
+    "totalBoughtAndSold": 8,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/1936526/c2426d1f192e4eb081c890f9068ec635"
+  },
+  "createdAt": "2026-05-31T21:17:08.000Z"
+},
+{
+  "id": 98654023,
+  "url": "https://www.grailed.com/listings/98654023",
+  "title": "Rick Owens DRKSHDW Granbury Hoodie",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "tops",
+  "categoryPath": "tops.sweatshirts_hoodies",
+  "size": "xxl",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 159,
+  "priceDrops": [
+    375,
+    337,
+    303,
+    272,
+    244,
+    219,
+    197,
+    177,
+    159
+  ],
+  "sold": true,
+  "soldPrice": 159,
+  "soldAt": "2026-07-04T07:08:12.329Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/8cf5077947b8429382842033b9fa5273",
+  "photoCount": 6,
+  "measurementCount": 5,
+  "heat": 4572.873281009821,
+  "followers": 55,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 14.99,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 0,
+      "enabled": false
+    },
+    "uk": {
+      "amount": 30,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 30,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 30,
+      "enabled": true
+    },
+    "au": {
+      "amount": 0,
+      "enabled": false
+    },
+    "other": {
+      "amount": 0,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 18595,
+    "username": "Pintado",
+    "ratingAverage": 5,
+    "ratingCount": 12,
+    "totalBoughtAndSold": 37,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/18595/52c6bcc667a445b1a5773eb763dbfb44"
+  },
+  "createdAt": "2026-06-15T00:26:35.000Z"
+},
+{
+  "id": 97611160,
+  "url": "https://www.grailed.com/listings/97611160",
+  "title": "Rick Owens ss20 DracuBiker Jacket",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "outerwear",
+  "categoryPath": "outerwear.leather_jackets",
+  "size": "s",
+  "condition": "Gently Used",
+  "color": "white",
+  "styles": [
+    "luxury"
+  ],
+  "price": 585,
+  "priceDrops": [
+    650,
+    585
+  ],
+  "sold": true,
+  "soldPrice": 530,
+  "soldAt": "2026-07-04T07:05:33.632Z",
+  "strata": "grailed",
+  "location": "Asia",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/e56188c5edb44e26b77207be030418ad",
+  "photoCount": 13,
+  "measurementCount": 4,
+  "heat": 4558.14699800518,
+  "followers": 405,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 35,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 40,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 40,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 40,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 40,
+      "enabled": true
+    },
+    "au": {
+      "amount": 40,
+      "enabled": true
+    },
+    "other": {
+      "amount": 25,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 15761291,
+    "username": "kentr3llgg",
+    "ratingAverage": 5,
+    "ratingCount": 9,
+    "totalBoughtAndSold": 22,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/15761291/97c3f327a4c24e40b973700a32cc035d"
+  },
+  "createdAt": "2026-05-28T09:52:56.000Z"
+},
+{
+  "id": 98052759,
+  "url": "https://www.grailed.com/listings/98052759",
+  "title": "Geothrasher High Top Sneakers",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "footwear",
+  "categoryPath": "footwear.hitop_sneakers",
+  "size": "10",
+  "condition": "Gently Used",
+  "color": "blue",
+  "styles": [
+    "luxury"
+  ],
+  "price": 410,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 410,
+  "soldAt": "2026-07-04T07:04:44.516Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/248dadcdb80d4db7b4e09a0322a9e760",
+  "photoCount": 16,
+  "measurementCount": 0,
+  "heat": 4561.498573611832,
+  "followers": 24,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 19.98,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 40,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 45,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 50,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 55,
+      "enabled": true
+    },
+    "au": {
+      "amount": 60,
+      "enabled": true
+    },
+    "other": {
+      "amount": 65,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 21380,
+    "username": "kalmandcollected",
+    "ratingAverage": 4.995238095238095,
+    "ratingCount": 840,
+    "totalBoughtAndSold": 1945,
+    "trustedSeller": true,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/21380/8038434162d34c87bc63860fbc608e8b"
+  },
+  "createdAt": "2026-06-04T20:09:49.000Z"
+},
+{
+  "id": 96317475,
+  "url": "https://www.grailed.com/listings/96317475",
+  "title": "FW24 Rick Owens DRKSHDW Terra Waxed Bias Bootcut Denim Jeans",
+  "designer": "Rick Owens Drkshdw",
+  "designers": [
+    {
+      "id": 583,
+      "name": "Rick Owens Drkshdw"
+    }
+  ],
+  "department": "menswear",
+  "category": "bottoms",
+  "categoryPath": "bottoms.denim",
+  "size": "31",
+  "condition": "Used",
+  "color": "orange",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 387,
+  "priceDrops": [
+    430,
+    387
+  ],
+  "sold": true,
+  "soldPrice": 340,
+  "soldAt": "2026-07-04T05:35:47.759Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/72a5cf4445b04c2eb6e0ba5587b0cf11",
+  "photoCount": 15,
+  "measurementCount": 6,
+  "heat": 4533.300517183379,
+  "followers": 181,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 14.99,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 30,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 40,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 40,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 60,
+      "enabled": true
+    },
+    "au": {
+      "amount": 60,
+      "enabled": true
+    },
+    "other": {
+      "amount": 60,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 1534552,
+    "username": "rokuz",
+    "ratingAverage": 4.978328173374613,
+    "ratingCount": 323,
+    "totalBoughtAndSold": 984,
+    "trustedSeller": true,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/1534552/c98ed4b975fb4075b44a526b6d3e9898"
+  },
+  "createdAt": "2026-05-04T17:27:11.000Z"
+},
+{
+  "id": 99336923,
+  "url": "https://www.grailed.com/listings/99336923",
+  "title": "SS20 Drawstring Sweatpants",
+  "designer": "Rick Owens Drkshdw",
+  "designers": [
+    {
+      "id": 583,
+      "name": "Rick Owens Drkshdw"
+    }
+  ],
+  "department": "menswear",
+  "category": "bottoms",
+  "categoryPath": "bottoms.sweatpants_joggers",
+  "size": "31",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "luxury"
+  ],
+  "price": 228,
+  "priceDrops": [
+    254,
+    228
+  ],
+  "sold": true,
+  "soldPrice": 175,
+  "soldAt": "2026-07-04T03:55:29.462Z",
+  "strata": "grailed",
+  "location": "Canada",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/023fe1088d834ef1bbb9ac2f77a8a559",
+  "photoCount": 7,
+  "measurementCount": 6,
+  "heat": 4581.333454459095,
+  "followers": 49,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 18.99,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 40,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 50,
+      "enabled": false
+    },
+    "eu": {
+      "amount": 50,
+      "enabled": false
+    },
+    "asia": {
+      "amount": 50,
+      "enabled": false
+    },
+    "au": {
+      "amount": 50,
+      "enabled": false
+    },
+    "other": {
+      "amount": 50,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 136626,
+    "username": "davidcoulterstevens",
+    "ratingAverage": 4.89344262295082,
+    "ratingCount": 61,
+    "totalBoughtAndSold": 106,
+    "trustedSeller": true,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/136626/e70bc3dbf9a743d380bb91bd899ddfab"
+  },
+  "createdAt": "2026-06-25T10:51:48.000Z"
+},
+{
+  "id": 91854745,
+  "url": "https://www.grailed.com/listings/91854745",
+  "title": "Converse x Rick Owens DRKSHDW TURBOWPN mid",
+  "designer": "Converse × Rick Owens Drkshdw",
+  "designers": [
+    {
+      "id": 421,
+      "name": "Converse"
+    },
+    {
+      "id": 583,
+      "name": "Rick Owens Drkshdw"
+    }
+  ],
+  "department": "menswear",
+  "category": "footwear",
+  "categoryPath": "footwear.hitop_sneakers",
+  "size": "9",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 250,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 225,
+  "soldAt": "2026-07-04T03:51:15.228Z",
+  "strata": "grailed",
+  "location": "Asia",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/10ae2f6f09e243bdb891930a16dd979f",
+  "photoCount": 8,
+  "measurementCount": 0,
+  "heat": 4438.328408162799,
+  "followers": 14,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 20,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 20,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 30,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 30,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 20,
+      "enabled": true
+    },
+    "au": {
+      "amount": 30,
+      "enabled": true
+    },
+    "other": {
+      "amount": 10,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 1562718,
+    "username": "THEIDEAL",
+    "ratingAverage": 4.938053097345133,
+    "ratingCount": 113,
+    "totalBoughtAndSold": 237,
+    "trustedSeller": true,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/1562718/141dccc22463493c86d18401fca6df71"
+  },
+  "createdAt": "2026-02-02T10:44:32.000Z"
+},
+{
+  "id": 95443101,
+  "url": "https://www.grailed.com/listings/95443101",
+  "title": "RICK OWENS - DRKSHDW - Waxed Canvas Ramones",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "footwear",
+  "categoryPath": "footwear.hitop_sneakers",
+  "size": "9",
+  "condition": "Used",
+  "color": "black",
+  "styles": [],
+  "price": 336,
+  "priceDrops": [
+    420,
+    336
+  ],
+  "sold": true,
+  "soldPrice": 250,
+  "soldAt": "2026-07-04T03:26:39.526Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/33dbf13f50af4d21be72b20ecef4c4f3",
+  "photoCount": 8,
+  "measurementCount": 0,
+  "heat": 4511.588383651164,
+  "followers": 168,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 0,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 0,
+      "enabled": false
+    },
+    "uk": {
+      "amount": 0,
+      "enabled": false
+    },
+    "eu": {
+      "amount": 0,
+      "enabled": false
+    },
+    "asia": {
+      "amount": 0,
+      "enabled": false
+    },
+    "au": {
+      "amount": 0,
+      "enabled": false
+    },
+    "other": {
+      "amount": 0,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 8525975,
+    "username": "HwcJadon",
+    "ratingAverage": null,
+    "ratingCount": 0,
+    "totalBoughtAndSold": 5,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/8525975/f1fda6fc7b6e4cda953da4306dfe7ca7"
+  },
+  "createdAt": "2026-04-16T14:35:34.000Z"
+},
+{
+  "id": 99720832,
+  "url": "https://www.grailed.com/listings/99720832",
+  "title": "Rick Owens waxed detroit cut jeans",
+  "designer": "Rick Owens Drkshdw",
+  "designers": [
+    {
+      "id": 583,
+      "name": "Rick Owens Drkshdw"
+    }
+  ],
+  "department": "menswear",
+  "category": "bottoms",
+  "categoryPath": "bottoms.denim",
+  "size": "34",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 520,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 520,
+  "soldAt": "2026-07-04T03:02:41.290Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/cada6f89865c4352969563a0be73a9c2",
+  "photoCount": 8,
+  "measurementCount": 5,
+  "heat": 4583.97943287037,
+  "followers": 4,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 29.98,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 50,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 70,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 90,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 50,
+      "enabled": true
+    },
+    "au": {
+      "amount": 90,
+      "enabled": true
+    },
+    "other": {
+      "amount": 90,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 1847900,
+    "username": "HypeConsignmentLLC",
+    "ratingAverage": 4.976331360946745,
+    "ratingCount": 338,
+    "totalBoughtAndSold": 952,
+    "trustedSeller": true,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/1847900/3a89ae6e490d4fd7941cf455d06b6acf"
+  },
+  "createdAt": "2026-06-29T21:44:36.000Z"
+},
+{
+  "id": 99736244,
+  "url": "https://www.grailed.com/listings/99736244",
+  "title": "Converse Rick Owens TURBOWPN",
+  "designer": "Converse × Rick Owens Drkshdw",
+  "designers": [
+    {
+      "id": 421,
+      "name": "Converse"
+    },
+    {
+      "id": 583,
+      "name": "Rick Owens Drkshdw"
+    }
+  ],
+  "department": "menswear",
+  "category": "footwear",
+  "categoryPath": "footwear.lowtop_sneakers",
+  "size": "11",
+  "condition": "Gently Used",
+  "color": "gray",
+  "styles": [
+    "sportswear"
+  ],
+  "price": 150,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 110,
+  "soldAt": "2026-07-04T02:22:08.595Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/8d55406e0b9c469e9503be45169211e1",
+  "photoCount": 6,
+  "measurementCount": 0,
+  "heat": 4582.26853888961,
+  "followers": 6,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 0,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 50,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 50,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 50,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 50,
+      "enabled": true
+    },
+    "au": {
+      "amount": 50,
+      "enabled": true
+    },
+    "other": {
+      "amount": 50,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 9712931,
+    "username": "pcm",
+    "ratingAverage": null,
+    "ratingCount": 0,
+    "totalBoughtAndSold": 1,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/9712931/3f99ad48d4c44d91935a5b339794705a"
+  },
+  "createdAt": "2026-06-30T14:38:34.000Z"
+},
+{
+  "id": 99137278,
+  "url": "https://www.grailed.com/listings/99137278",
+  "title": "S/S18 Passport ONE SIZE Sleeveless Shirt",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "tops",
+  "categoryPath": "tops.sleeveless",
+  "size": "l",
+  "condition": "Gently Used",
+  "color": "blue",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 130,
+  "priceDrops": [
+    160,
+    130
+  ],
+  "sold": true,
+  "soldPrice": 110,
+  "soldAt": "2026-07-04T01:51:52.358Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/f7619ffe20e54a6793b9353bb4c5aac6",
+  "photoCount": 4,
+  "measurementCount": 2,
+  "heat": 4579.774233674583,
+  "followers": 49,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 8.99,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 25,
+      "enabled": false
+    },
+    "uk": {
+      "amount": 25,
+      "enabled": false
+    },
+    "eu": {
+      "amount": 25,
+      "enabled": false
+    },
+    "asia": {
+      "amount": 25,
+      "enabled": false
+    },
+    "au": {
+      "amount": 25,
+      "enabled": false
+    },
+    "other": {
+      "amount": 25,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 11478306,
+    "username": "mariibanzzzz",
+    "ratingAverage": 5,
+    "ratingCount": 1,
+    "totalBoughtAndSold": 14,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/11478306/394ff78a3c41468a8f841f8282fa9f19"
+  },
+  "createdAt": "2026-06-22T14:43:10.000Z"
+},
+{
+  "id": 99931502,
+  "url": "https://www.grailed.com/listings/99931502",
+  "title": "SS09 “Strutter” Hogwash Detroit Cut Denim",
+  "designer": "Rick Owens Drkshdw",
+  "designers": [
+    {
+      "id": 583,
+      "name": "Rick Owens Drkshdw"
+    }
+  ],
+  "department": "menswear",
+  "category": "bottoms",
+  "categoryPath": "bottoms.denim",
+  "size": "33",
+  "condition": "Gently Used",
+  "color": "gray",
+  "styles": [
+    "basics"
+  ],
+  "price": 800,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 600,
+  "soldAt": "2026-07-04T01:36:16.816Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/e1cf73f261ca4e0c97e78ece43c91a1e",
+  "photoCount": 13,
+  "measurementCount": 3,
+  "heat": 4587.652597977613,
+  "followers": 7,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 18.99,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 50,
+      "enabled": false
+    },
+    "uk": {
+      "amount": 50,
+      "enabled": false
+    },
+    "eu": {
+      "amount": 50,
+      "enabled": false
+    },
+    "asia": {
+      "amount": 50,
+      "enabled": false
+    },
+    "au": {
+      "amount": 50,
+      "enabled": false
+    },
+    "other": {
+      "amount": 50,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 14531667,
+    "username": "batchesonline",
+    "ratingAverage": 5,
+    "ratingCount": 4,
+    "totalBoughtAndSold": 6,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/14531667/554be5b5f457413d977fc55d6eb1fdc7"
+  },
+  "createdAt": "2026-07-02T18:31:22.000Z"
+},
+{
+  "id": 98377086,
+  "url": "https://www.grailed.com/listings/98377086",
+  "title": "rick owens drkshdw bomber large",
+  "designer": "Rick Owens Drkshdw",
+  "designers": [
+    {
+      "id": 583,
+      "name": "Rick Owens Drkshdw"
+    }
+  ],
+  "department": "menswear",
+  "category": "outerwear",
+  "categoryPath": "outerwear.bombers",
+  "size": "l",
+  "condition": "Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 280,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 250,
+  "soldAt": "2026-07-04T01:24:42.669Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/97834ba419ac49b6ba5fb39524a6a633",
+  "photoCount": 8,
+  "measurementCount": 5,
+  "heat": 4562.135266203703,
+  "followers": 8,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 0,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 0,
+      "enabled": false
+    },
+    "uk": {
+      "amount": 0,
+      "enabled": false
+    },
+    "eu": {
+      "amount": 0,
+      "enabled": false
+    },
+    "asia": {
+      "amount": 0,
+      "enabled": false
+    },
+    "au": {
+      "amount": 0,
+      "enabled": false
+    },
+    "other": {
+      "amount": 0,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 3743709,
+    "username": "possessedpt2",
+    "ratingAverage": null,
+    "ratingCount": 0,
+    "totalBoughtAndSold": 4,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/3743709/7d7d217cbe144a689f73fea2b890826a"
+  },
+  "createdAt": "2026-06-10T01:29:00.000Z"
+},
+{
+  "id": 97719699,
+  "url": "https://www.grailed.com/listings/97719699",
+  "title": "Rick Owens Strobe FW22 wool pants",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "bottoms",
+  "categoryPath": "bottoms.casual_pants",
+  "size": "34",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "luxury"
+  ],
+  "price": 425,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 380,
+  "soldAt": "2026-07-04T01:19:06.122Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/9b8a83bb3ed6419994dc68e4b1ff1b63",
+  "photoCount": 5,
+  "measurementCount": 0,
+  "heat": 4554.626237174193,
+  "followers": 11,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 14.99,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 50,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 50,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 50,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 50,
+      "enabled": true
+    },
+    "au": {
+      "amount": 50,
+      "enabled": true
+    },
+    "other": {
+      "amount": 50,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 9184766,
+    "username": "punchdin",
+    "ratingAverage": 4.4,
+    "ratingCount": 5,
+    "totalBoughtAndSold": 34,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/9184766/49199e69fc524edb8f2311e11a60e21f"
+  },
+  "createdAt": "2026-05-30T02:14:25.000Z"
+},
+{
+  "id": 99809482,
+  "url": "https://www.grailed.com/listings/99809482",
+  "title": "Rick Owens Mainline Ramones",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "footwear",
+  "categoryPath": "footwear.lowtop_sneakers",
+  "size": "12",
+  "condition": "Used",
+  "color": "black",
+  "styles": [
+    "luxury"
+  ],
+  "price": 465,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 425,
+  "soldAt": "2026-07-04T01:03:43.413Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/d50a0744422d468dbdf5a22d1cdf20a8",
+  "photoCount": 6,
+  "measurementCount": 0,
+  "heat": 4588.752890659761,
+  "followers": 23,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 15.99,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 0,
+      "enabled": false
+    },
+    "uk": {
+      "amount": 0,
+      "enabled": false
+    },
+    "eu": {
+      "amount": 0,
+      "enabled": false
+    },
+    "asia": {
+      "amount": 0,
+      "enabled": false
+    },
+    "au": {
+      "amount": 0,
+      "enabled": false
+    },
+    "other": {
+      "amount": 0,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 13604407,
+    "username": "desiired",
+    "ratingAverage": 5,
+    "ratingCount": 2,
+    "totalBoughtAndSold": 14,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/13604407/1b3fe40d67b043ff97847b712245eb0f"
+  },
+  "createdAt": "2026-07-02T03:44:27.000Z"
+},
+{
+  "id": 89464333,
+  "url": "https://www.grailed.com/listings/89464333",
+  "title": "Rick Owens KURDT Jeans MIJ",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "bottoms",
+  "categoryPath": "bottoms.denim",
+  "size": "30",
+  "condition": "Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 445,
+  "priceDrops": [
+    550,
+    495,
+    445
+  ],
+  "sold": true,
+  "soldPrice": 375,
+  "soldAt": "2026-07-04T00:45:45.614Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/0a1842ac95de457a850691a418be1874",
+  "photoCount": 6,
+  "measurementCount": 3,
+  "heat": 4395.370387882705,
+  "followers": 276,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 0,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 0,
+      "enabled": false
+    },
+    "uk": {
+      "amount": 0,
+      "enabled": false
+    },
+    "eu": {
+      "amount": 0,
+      "enabled": false
+    },
+    "asia": {
+      "amount": 0,
+      "enabled": false
+    },
+    "au": {
+      "amount": 0,
+      "enabled": false
+    },
+    "other": {
+      "amount": 0,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 1812041,
+    "username": "bryancartier",
+    "ratingAverage": 5,
+    "ratingCount": 12,
+    "totalBoughtAndSold": 102,
+    "trustedSeller": true,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/1812041/cade66b4e0f244348e8e9a5462410096"
+  },
+  "createdAt": "2025-12-17T04:31:18.000Z"
+},
+{
+  "id": 99872673,
+  "url": "https://www.grailed.com/listings/99872673",
+  "title": "Rick Owens FW13 Waxed Leather Sleeve Trench Coat",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "outerwear",
+  "categoryPath": "outerwear.heavy_coats",
+  "size": "m",
+  "condition": "Used",
+  "color": "black",
+  "styles": [
+    "luxury"
+  ],
+  "price": 750,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 550,
+  "soldAt": "2026-07-04T00:19:36.676Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/89983cb795ea418aaaefc97712a71d55",
+  "photoCount": 8,
+  "measurementCount": 2,
+  "heat": 4586.069016203704,
+  "followers": 4,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 23.99,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 40,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 65,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 75,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 75,
+      "enabled": true
+    },
+    "au": {
+      "amount": 75,
+      "enabled": true
+    },
+    "other": {
+      "amount": 0,
+      "enabled": false
+    }
+  },
+  "seller": {
+    "id": 11240725,
+    "username": "Iliketodomything",
+    "ratingAverage": 4.733333333333333,
+    "ratingCount": 15,
+    "totalBoughtAndSold": 42,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/11240725/9edaef730eb34df2b4c89cfefa9275b1"
+  },
+  "createdAt": "2026-07-01T23:53:36.000Z"
+},
+{
+  "id": 98697396,
+  "url": "https://www.grailed.com/listings/98697396",
+  "title": "Rick Owens Pillow Griffin bag",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "accessories",
+  "categoryPath": "accessories.bags_luggage",
+  "size": "one size",
+  "condition": "Used",
+  "color": "black",
+  "styles": [
+    "luxury"
+  ],
+  "price": 400,
+  "priceDrops": [
+    630,
+    567,
+    500,
+    450,
+    405,
+    400
+  ],
+  "sold": true,
+  "soldPrice": 390,
+  "soldAt": "2026-07-04T00:10:32.223Z",
+  "strata": "grailed",
+  "location": "Europe",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/fe38d857a0544f8fad95b6d6a74e0a55",
+  "photoCount": 7,
+  "measurementCount": 0,
+  "heat": 4570.124954313242,
+  "followers": 35,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 83,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 30,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 15,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 15,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 25,
+      "enabled": true
+    },
+    "au": {
+      "amount": 25,
+      "enabled": true
+    },
+    "other": {
+      "amount": 50,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 16686050,
+    "username": "cvrsxd33",
+    "ratingAverage": null,
+    "ratingCount": 0,
+    "totalBoughtAndSold": 1,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/16686050/4e373e41448d43c1a2d19da53a5f50d4"
+  },
+  "createdAt": "2026-06-15T22:07:59.000Z"
+},
+{
+  "id": 98126064,
+  "url": "https://www.grailed.com/listings/98126064",
+  "title": "Rick Owens Memphis Pod Shorts Black Xs",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "bottoms",
+  "categoryPath": "bottoms.shorts",
+  "size": "30",
+  "condition": "Gently Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 376,
+  "priceDrops": [
+    575,
+    517,
+    465,
+    418,
+    376
+  ],
+  "sold": true,
+  "soldPrice": 376,
+  "soldAt": "2026-07-03T23:43:02.687Z",
+  "strata": "grailed",
+  "location": "Canada",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/d47791c6e70e4bc2a9510985d85a6f3c",
+  "photoCount": 4,
+  "measurementCount": 0,
+  "heat": 4565.876623531574,
+  "followers": 207,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 14.99,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 35,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 35,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 35,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 35,
+      "enabled": true
+    },
+    "au": {
+      "amount": 0,
+      "enabled": true
+    },
+    "other": {
+      "amount": 50,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 11492493,
+    "username": "GettZoed",
+    "ratingAverage": 5,
+    "ratingCount": 44,
+    "totalBoughtAndSold": 69,
+    "trustedSeller": true,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/11492493/a573dddc31174555abfb2d53bf41799d"
+  },
+  "createdAt": "2026-06-06T02:37:56.000Z"
+},
+{
+  "id": 96720281,
+  "url": "https://www.grailed.com/listings/96720281",
+  "title": "FW18 Mainline Leather Ramone Hightop Sneakers 44",
+  "designer": "Rick Owens",
+  "designers": [
+    {
+      "id": 32,
+      "name": "Rick Owens"
+    }
+  ],
+  "department": "menswear",
+  "category": "footwear",
+  "categoryPath": "footwear.hitop_sneakers",
+  "size": "11.5",
+  "condition": "Used",
+  "color": "black",
+  "styles": [
+    "avant-garde"
+  ],
+  "price": 500,
+  "priceDrops": [],
+  "sold": true,
+  "soldPrice": 365,
+  "soldAt": "2026-07-03T23:42:30.327Z",
+  "strata": "grailed",
+  "location": "United States",
+  "coverPhoto": "https://media-assets.grailed.com/prd/listing/temp/4fc436913b264a9abefd1e11a93c82e6",
+  "photoCount": 7,
+  "measurementCount": 0,
+  "heat": 4537.154797686628,
+  "followers": 18,
+  "buyNow": true,
+  "makeOffer": true,
+  "shipping": {
+    "us": {
+      "amount": 15.99,
+      "enabled": true
+    },
+    "ca": {
+      "amount": 65,
+      "enabled": true
+    },
+    "uk": {
+      "amount": 65,
+      "enabled": true
+    },
+    "eu": {
+      "amount": 65,
+      "enabled": true
+    },
+    "asia": {
+      "amount": 65,
+      "enabled": true
+    },
+    "au": {
+      "amount": 65,
+      "enabled": true
+    },
+    "other": {
+      "amount": 65,
+      "enabled": true
+    }
+  },
+  "seller": {
+    "id": 723552,
+    "username": "ShowaufsFashion",
+    "ratingAverage": 4.837010323858012,
+    "ratingCount": 2357,
+    "totalBoughtAndSold": 5829,
+    "trustedSeller": false,
+    "avatarUrl": "https://media-assets.grailed.com/prd/avatar/723552/c6786bc4043b417ab4e003b8288095f3"
+  },
+  "createdAt": "2026-05-11T21:52:26.000Z"
+}]

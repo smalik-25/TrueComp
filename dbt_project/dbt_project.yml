@@ -1,0 +1,22 @@
+name: 'truecomp'
+version: '1.0.0'
+config-version: 2
+
+profile: 'truecomp'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+# staging/intermediate stay as views over the canonical tables;
+# marts materialize as tables the site reads.
+models:
+  truecomp:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table

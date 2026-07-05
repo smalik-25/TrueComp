@@ -1,0 +1,16 @@
+# Project-local profile. Run dbt with DBT_PROFILES_DIR set to this directory
+# (the Makefile `dbt` target does this and injects the PG* vars parsed from
+# DATABASE_URL via scripts/pg_env.py). Nothing secret lives here.
+truecomp:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('PGHOST') }}"
+      user: "{{ env_var('PGUSER') }}"
+      password: "{{ env_var('PGPASSWORD') }}"
+      port: "{{ env_var('PGPORT', '5432') | int }}"
+      dbname: "{{ env_var('PGDATABASE') }}"
+      schema: "{{ env_var('PGSCHEMA', 'public') }}"
+      sslmode: "{{ env_var('PGSSLMODE', 'require') }}"
+      threads: 4

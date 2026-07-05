@@ -1,0 +1,50 @@
+# === Secrets: never commit ===
+.env
+.env.*
+!.env.example
+!.env.local.example
+*.pem
+*.key
+
+# === Local planning / assistant context: keep out of public repo ===
+CLAUDE.md
+PROJECT_PLAN.md
+ADAPTER_MAPPINGS.md
+SEED_INPUTS.md
+/notes/
+/.claude/
+/files/
+*.zip
+
+# === Python ===
+__pycache__/
+*.py[cod]
+.venv
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# === dbt ===
+dbt_project/target/
+dbt_project/dbt_packages/
+dbt_project/logs/
+.user.yml
+
+# === data: keep fixtures, ignore bulk/raw pulls ===
+/data/raw/
+/data/staging/
+!/data/fixtures/
+
+# === node / next (web/) ===
+web/node_modules/
+web/.next/
+web/out/
+web/.vercel/
+
+# === OS / editor ===
+.DS_Store
+data/.DS_Store
+.idea/
+.vscode/

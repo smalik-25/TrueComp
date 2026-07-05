@@ -1,0 +1,21 @@
+# Core pipeline (adapters, resolution, loaders)
+psycopg[binary]>=3.2
+python-dotenv>=1.0
+rapidfuzz>=3.0
+requests>=2.31
+
+# Analytics (pinned to a stable pair; unpinned resolves a core prerelease)
+dbt-postgres~=1.9.0
+
+# Tests + lint
+pytest>=8.0
+ruff>=0.6
+
+# ML layer (Phase 5)
+scikit-learn>=1.4
+lightgbm>=4.0
+pandas>=2.0
+numpy>=1.26
+
+# Optional title embeddings (Phase 2, only if residual match rate justifies it)
+# sentence-transformers>=2.6
