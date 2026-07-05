@@ -1,4 +1,7 @@
 [tool.pytest.ini_options]
+# Put the repo root on sys.path so the source packages import under the bare
+# `pytest` console script (CI and `make test`), not just `python -m pytest`.
+pythonpath = ["."]
 # Scope discovery to tests/ so pytest does not walk the whole tree, and skip the
 # on-disk cache; both keep runs fast and avoid filesystem stalls.
 testpaths = ["tests"]
