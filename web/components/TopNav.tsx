@@ -9,6 +9,7 @@ import { Wordmark } from "./Wordmark";
 // plan 4.4) so it is intentionally absent until it is backed by real marts.
 const LINKS = [
   { href: "/search", label: "Search" },
+  { href: "/identify", label: "Identify" },
   { href: "/method", label: "Method" },
   { href: "/underpriced", label: "Underpriced" },
   { href: "/colophon", label: "Colophon" },
