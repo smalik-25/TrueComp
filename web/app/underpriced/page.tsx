@@ -15,16 +15,17 @@ export default async function UnderpricedPage() {
     <Container>
       <div className="stack-4" style={{ paddingBlock: "var(--space-7)" }}>
         <header className="stack-3">
-          <KickerLabel>Active asks under the sold floor</KickerLabel>
+          <KickerLabel>Active asks under same-condition comps</KickerLabel>
           <h1 className="serif" style={{ fontSize: "var(--t-display)", lineHeight: 1.05 }}>
             Underpriced now
           </h1>
           <p className="prose measure ink-2">
-            Live listings priced below a piece&rsquo;s P10 sold price, ranked by how far under the
-            sold median they sit. This is an ask sitting under the comp floor, not a guaranteed
-            profit: it can still be a fake, the wrong size, or a stale listing. Every row carries
-            the comp count and grade it rests on, and only pieces with at least three sold comps
-            qualify.
+            Live listings priced at least 15% below the median of{" "}
+            <em>same-condition</em> sold comps, ranked by how far under they sit. Each ask is
+            matched like-for-like on grade, and only against pieces with at least three same-grade
+            comps and a comp spread tight enough to trust. This is an ask under the like-for-like
+            comp floor, not a guaranteed profit: it can still be a fake, the wrong size, or a stale
+            listing.
           </p>
         </header>
 
@@ -38,7 +39,7 @@ export default async function UnderpricedPage() {
               >
                 <div className="arb-identity">
                   <span className="arb-kicker">
-                    {s.archetype ?? "piece"} · {s.marketplace}
+                    {s.archetype ?? "piece"} · {s.marketplace} · {s.grade_norm}
                   </span>
                   <span className="serif arb-name">
                     {displayBrand(s.brand_norm)}
@@ -80,8 +81,9 @@ export default async function UnderpricedPage() {
         ) : (
           <div className="prose measure ink-2">
             <p>
-              No active asks are sitting under a sold-comp floor right now. This view fills once an
-              active-listing pull runs; the detector is live and waiting on data.
+              No active ask currently clears the bar: at least 15% below the median of its
+              same-condition comps, from a piece with enough tight same-grade sales to trust.
+              Active listings are loaded and scanned; nothing qualifies right now.
             </p>
           </div>
         )}

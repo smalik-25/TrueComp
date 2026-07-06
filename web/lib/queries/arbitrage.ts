@@ -2,9 +2,11 @@ import "server-only";
 import { db } from "../db";
 import { toPieceKey, type PieceKeyParts } from "../pieceKey";
 
-// mart_arbitrage: active asks below a piece's P10 sold price. Numeric columns
-// arrive as strings (cast at the render boundary); counts are cast to int.
-// discount_vs_median is a ratio (0.15 == 15% under the sold median).
+// mart_arbitrage: active asks at least min_discount_vs_median below the median of
+// SAME-condition sold comps. grade_norm is the condition the ask is matched on, so
+// median_usd / p10_usd / n_sold all describe that like-for-like grade pool. Numeric
+// columns arrive as strings (cast at the render boundary); counts are cast to int.
+// discount_vs_median is a ratio (0.15 == 15% under the same-condition median).
 export type Arbitrage = {
   active_id: number;
   piece_id: number;
@@ -14,6 +16,7 @@ export type Arbitrage = {
   ask_price_usd: string;
   n_listings: number;
   snapshot_date: string;
+  grade_norm: string;
   brand_norm: string;
   archetype: string | null;
   model_name: string | null;
@@ -28,7 +31,7 @@ export type Arbitrage = {
 
 const COLS = `active_id, piece_id, marketplace, source_listing_id, raw_title,
   ask_price_usd::text as ask_price_usd, n_listings::int as n_listings,
-  snapshot_date::text as snapshot_date,
+  snapshot_date::text as snapshot_date, grade_norm,
   brand_norm, archetype, model_name, season_code,
   median_usd::text as median_usd, p10_usd::text as p10_usd, n_sold::int as n_sold,
   confidence_grade, discount_vs_median::text as discount_vs_median`;
