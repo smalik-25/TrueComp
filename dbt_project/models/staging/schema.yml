@@ -17,3 +17,7 @@ models:
     columns:
       - name: marketplace_id
         tests: [unique, not_null]
+  - name: stg_condition
+    columns:
+      - name: condition_id
+        tests: [unique, not_null]

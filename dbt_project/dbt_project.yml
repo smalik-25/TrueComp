@@ -19,6 +19,11 @@ vars:
                               # medians are within 2x of each other (symmetric):
                               # a larger same-piece gap means contamination
   min_spread_comps: 3         # cleaned comps required on BOTH marketplaces
+  min_discount_vs_median: 0.15  # an active ask counts as underpriced only when it
+                              # sits at least this far below the same-condition sold
+                              # median. P10 is too extreme a bar for a thin-margin
+                              # market; a meaningful discount off the like-for-like
+                              # median is the honest signal
 
 # staging/intermediate stay as views over the canonical tables;
 # marts materialize as tables the site reads.

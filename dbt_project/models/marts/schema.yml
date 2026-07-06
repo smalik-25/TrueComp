@@ -63,11 +63,37 @@ models:
         tests:
           - not_null   # spreads are only reported for identified model-level pieces
 
+  - name: mart_piece_condition_comps
+    description: >
+      Per-piece sold price level split by condition (grade_norm), so an ask can be
+      compared like-for-like on grade. Every (piece, grade) cell is kept and graded
+      by n; the arbitrage mart applies the >=3, dispersion and model-level guards.
+    columns:
+      - name: piece_condition_key
+        tests: [unique, not_null]
+      - name: piece_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_piece')
+              field: piece_id
+      - name: grade_norm
+        tests: [not_null]
+      - name: n_sold
+        tests: [not_null]
+      - name: confidence_grade
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['A', 'B', 'C', 'D']
+
   - name: mart_arbitrage
     description: >
-      Active asks priced below a piece's P10 sold price, for pieces with >=3 comps,
-      ranked by discount to the sold median. An ask under the sold-comp floor, not a
-      profit promise. Empty until an active-listing pull loads fact_active_listing.
+      Active asks priced at least min_discount_vs_median below the SAME-condition
+      sold median, for model-level pieces with >=3 same-grade comps and a same-grade
+      dispersion within the cap, ranked by discount. An ask under the like-for-like
+      comp floor, not a profit promise. Empty until an active-listing pull loads
+      fact_active_listing.
     columns:
       - name: piece_id
         tests:
@@ -75,6 +101,8 @@ models:
           - relationships:
               to: ref('stg_piece')
               field: piece_id
+      - name: grade_norm
+        tests: [not_null]
       - name: confidence_grade
         tests:
           - accepted_values:

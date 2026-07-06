@@ -41,6 +41,8 @@ with deduped as (
 select
     sold_id,
     piece_id,
+    condition_id,
+    grade_norm,
     size_id,
     raw_title,
     brand_norm,
