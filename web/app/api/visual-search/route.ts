@@ -1,36 +1,36 @@
-import { del } from "@vercel/blob";
+import { del, put } from "@vercel/blob";
 import { NextResponse } from "next/server";
 import { embedImageUrl } from "@/lib/embed";
-import { searchByVector, gradeMatch } from "@/lib/queries/visualSearch";
+import { gradeMatch, searchByVector } from "@/lib/queries/visualSearch";
 
 export const runtime = "nodejs";
 // Cold-starting the GPU worker can take ~20s; give the request room.
 export const maxDuration = 60;
 
-// Only fetch our own Vercel Blob URLs. Parsing with URL (not a regex) removes the
-// anchor and newline-smuggling class outright; if BLOB_PUBLIC_HOST is set we pin
-// to this app's exact store host, otherwise we allow any Vercel Blob host.
-function isOwnBlob(raw: string): boolean {
-  let url: URL;
-  try {
-    url = new URL(raw);
-  } catch {
-    return false;
-  }
-  if (url.protocol !== "https:") return false;
-  const pinned = process.env.BLOB_PUBLIC_HOST;
-  if (pinned) return url.hostname === pinned;
-  return url.hostname.endsWith(".public.blob.vercel-storage.com");
-}
+// The browser downsizes the photo before posting, so this is only a safety cap.
+const MAX_BYTES = 6 * 1024 * 1024;
 
 export async function POST(request: Request): Promise<NextResponse> {
   let blobUrl: string | undefined;
   try {
-    const body = (await request.json()) as { blobUrl?: string };
-    blobUrl = body.blobUrl;
-    if (!blobUrl || !isOwnBlob(blobUrl)) {
-      return NextResponse.json({ error: "invalid image reference" }, { status: 400 });
+    const form = await request.formData();
+    const file = form.get("image");
+    if (!(file instanceof File) || file.size === 0) {
+      return NextResponse.json({ error: "no image provided" }, { status: 400 });
     }
+    if (file.size > MAX_BYTES) {
+      return NextResponse.json({ error: "image too large" }, { status: 413 });
+    }
+    const bytes = Buffer.from(await file.arrayBuffer());
+    // Store the (already downscaled) query image just long enough for the worker
+    // to fetch it, then delete it in the finally. It is never persisted, and the
+    // URL comes from our own put(), so there is nothing external to guard against.
+    const blob = await put("query/q.jpg", bytes, {
+      access: "public",
+      addRandomSuffix: true,
+      contentType: "image/jpeg",
+    });
+    blobUrl = blob.url;
     const vec = await embedImageUrl(blobUrl);
     const matches = await searchByVector(vec);
     const verdict = gradeMatch(matches);
@@ -38,12 +38,11 @@ export async function POST(request: Request): Promise<NextResponse> {
   } catch (err) {
     return NextResponse.json({ error: (err as Error).message }, { status: 500 });
   } finally {
-    // The query image is transient: drop it the moment it is embedded.
     if (blobUrl) {
       try {
         await del(blobUrl);
       } catch {
-        // best-effort cleanup; a leftover blob expires on its own
+        // best-effort; the daily sweep clears any crash-orphan
       }
     }
   }

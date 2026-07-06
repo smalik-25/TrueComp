@@ -1,6 +1,5 @@
 "use client";
 
-import { upload } from "@vercel/blob/client";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { displayBrand, formatCount, formatUsd } from "@/lib/format";
@@ -9,9 +8,30 @@ import type { Verdict, VisualMatch } from "@/lib/queries/visualSearch";
 type Status = "idle" | "working" | "done" | "error";
 type Result = { verdict: Verdict; matches: VisualMatch[] };
 
-const ACCEPT_TYPES = ["image/jpeg", "image/png", "image/webp"];
-const ACCEPT = ACCEPT_TYPES.join(",");
-const MAX_BYTES = 15 * 1024 * 1024;
+const ACCEPT = "image/*";
+const MAX_BYTES = 30 * 1024 * 1024;
+const MAX_DIM = 1024;
+
+// Decode any browser-supported image (including HEIC on Safari) and re-encode it
+// as a downscaled JPEG. Keeps the upload tiny and hands the worker one format.
+async function downscaleToJpeg(file: File): Promise<Blob> {
+  const bitmap = await createImageBitmap(file);
+  const scale = Math.min(1, MAX_DIM / Math.max(bitmap.width, bitmap.height));
+  const w = Math.max(1, Math.round(bitmap.width * scale));
+  const h = Math.max(1, Math.round(bitmap.height * scale));
+  const canvas = document.createElement("canvas");
+  canvas.width = w;
+  canvas.height = h;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("canvas is unavailable");
+  ctx.drawImage(bitmap, 0, 0, w, h);
+  bitmap.close();
+  const blob = await new Promise<Blob | null>((resolve) =>
+    canvas.toBlob(resolve, "image/jpeg", 0.85),
+  );
+  if (!blob) throw new Error("could not encode image");
+  return blob;
+}
 
 const TIER_LABEL: Record<Verdict["tier"], string> = {
   strong: "Strong match",
@@ -116,13 +136,13 @@ export function VisualSearch() {
 
   const run = useCallback(
     async (file: File) => {
-      if (!file.type || !ACCEPT_TYPES.includes(file.type)) {
-        setError("Use a JPEG, PNG, or WebP image (HEIC is not supported yet).");
+      if (!file.type.startsWith("image/")) {
+        setError("That does not look like an image. Use a photo (JPEG, PNG, WebP, or HEIC).");
         setStatus("error");
         return;
       }
       if (file.size > MAX_BYTES) {
-        setError("Image is over 15 MB. Try a smaller one.");
+        setError("Image is over 30 MB. Try a smaller one.");
         setStatus("error");
         return;
       }
@@ -132,15 +152,10 @@ export function VisualSearch() {
       setStatus("working");
       setPreviewUrl(URL.createObjectURL(file));
       try {
-        const blob = await upload(`query/${file.name}`, file, {
-          access: "public",
-          handleUploadUrl: "/api/blob/upload",
-        });
-        const res = await fetch("/api/visual-search", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ blobUrl: blob.url }),
-        });
+        const jpeg = await downscaleToJpeg(file);
+        const form = new FormData();
+        form.append("image", jpeg, "query.jpg");
+        const res = await fetch("/api/visual-search", { method: "POST", body: form });
         if (!res.ok) {
           const body = (await res.json().catch(() => ({}))) as { error?: string };
           throw new Error(body.error ?? `search failed (${res.status})`);
@@ -182,7 +197,7 @@ export function VisualSearch() {
           <img src={preview} alt="your upload" className="vs-preview" />
         ) : (
           <span className="vs-drop-copy">
-            <strong>Drop a photo</strong> or click to choose. JPEG, PNG, or WebP.
+            <strong>Drop a photo</strong> or click to choose. JPEG, PNG, WebP, or HEIC.
           </span>
         )}
       </label>
