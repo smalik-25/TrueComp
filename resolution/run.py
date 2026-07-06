@@ -14,6 +14,7 @@ from dataclasses import dataclass
 
 from ingestion.db import connect
 
+from .metrics import GRAIL_BRANDS, model_resolution_rate, overall_rate
 from .resolver import Resolution, resolve
 
 
@@ -91,6 +92,31 @@ def apply_resolution(conn) -> list[tuple[Fact, Resolution]]:
     return out
 
 
+def apply_resolution_active(conn) -> int:
+    """Stamp piece_id onto active listings so arbitrage can join them to comps.
+
+    Same resolver as the sold path; active rows are keyed on active_id. Empty and
+    a no-op until an active-listing pull has loaded fact_active_listing.
+    """
+    with conn.cursor() as cur:
+        cur.execute("select active_id, raw_title, query_keyword from fact_active_listing")
+        rows = cur.fetchall()
+    if not rows:
+        return 0
+    resolver = PieceResolver(conn)
+    updates: list[tuple[int | None, int]] = []
+    for active_id, raw_title, query_keyword in rows:
+        r = resolve(raw_title, query_keyword)
+        pid = resolver.piece_id(r) if r.matched else None
+        updates.append((pid, active_id))
+    with conn.cursor() as cur:
+        cur.executemany(
+            "update fact_active_listing set piece_id = %s where active_id = %s", updates
+        )
+    conn.commit()
+    return len(rows)
+
+
 def _rate(n: int, d: int) -> str:
     return f"{n}/{d} ({(100 * n / d):.1f}%)" if d else "0/0"
 
@@ -129,6 +155,45 @@ def report(pairs: list[tuple[Fact, Resolution]], conn) -> None:
         cross = cur.fetchone()[0]
     print(f"\ndistinct pieces: {pieces}   cross-marketplace pieces: {cross}")
 
+    # Grail-set honesty: model-level resolution on the eight reference brands, and
+    # how many of their pieces actually clear a cross-marketplace comparison.
+    grail_rows = [(r.brand_norm, r.model_name) for _f, r in pairs if r.brand_norm]
+    per_brand = model_resolution_rate(grail_rows)
+    print("\n=== grail set: model-level resolution ===")
+    for brand in sorted(GRAIL_BRANDS):
+        m, t = per_brand.get(brand, (0, 0))
+        print(f"  {brand:18s} model-resolved {_rate(m, t)}")
+    gm, gt = overall_rate(per_brand)
+    print(f"  {'overall':18s} model-resolved {_rate(gm, gt)}")
+
+    with conn.cursor() as cur:
+        marks = ",".join(["%s"] * len(GRAIL_BRANDS))
+        cur.execute(
+            "select count(*) from ("
+            "  select f.piece_id from fact_sold_listing f "
+            "  join dim_piece p on p.piece_id = f.piece_id "
+            "  join dim_brand b on b.brand_id = p.brand_id "
+            f"  where b.brand_norm in ({marks}) "
+            "  group by f.piece_id having count(distinct f.marketplace_id) > 1"
+            ") t",
+            tuple(sorted(GRAIL_BRANDS)),
+        )
+        grail_both = cur.fetchone()[0]
+    spread = None
+    try:
+        with conn.cursor() as cur:
+            cur.execute("select count(*) from mart_cross_marketplace_spread")
+            spread = cur.fetchone()[0]
+    except Exception:
+        conn.rollback()
+    tail = f"   clearing the spread mart: {spread}" if spread is not None else ""
+    print(f"\ngrail pieces on >1 marketplace: {grail_both}{tail}")
+    print(
+        "the gap there, not the resolver, is the bottleneck the corpus expansion "
+        "targets: a piece can sell on both sides and still lack the depth a spread "
+        "needs (>=3 clean comps each side, medians within 2x)."
+    )
+
     unresolved = [(f, r) for f, r in pairs if not r.matched]
     print(f"\nunmatched sample ({len(unresolved)} rows; brand_only + unresolved):")
     for f, r in unresolved[:15]:
@@ -139,6 +204,9 @@ def main() -> int:
     with connect() as conn:
         pairs = apply_resolution(conn)
         report(pairs, conn)
+        n_active = apply_resolution_active(conn)
+        if n_active:
+            print(f"\nactive listings resolved: {n_active}")
     return 0
 
 

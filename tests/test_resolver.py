@@ -101,3 +101,39 @@ def test_model_comes_from_title_not_keyword():
     assert r.brand_display == "Rick Owens"
     assert r.model_name == "Geobasket"
     assert r.model_name != "Ramones"
+
+
+def test_model_archetype_overrides_keyword_bias():
+    # a footwear model pulled under a broadening denim/top keyword must not inherit
+    # that keyword's archetype (the GAT/Tabi/Ramones filed-under-denim bug)
+    r = resolve("Maison Margiela Replica GAT 43", "maison margiela denim")
+    assert r.model_name == "GAT"
+    assert r.archetype == "footwear"
+    assert r.canonical_key == "maison margiela|footwear|gat|"
+    assert resolve("Maison Margiela Tabi boots 42", "maison margiela denim").archetype == "footwear"
+    assert resolve("Rick Owens Ramones", "rick owens top").archetype == "footwear"
+
+
+def test_ambiguous_model_keeps_title_archetype():
+    # Replica spans a whole capsule (footwear AND apparel), so it is deliberately
+    # NOT in MODEL_ARCHETYPE; a Replica jacket must stay outerwear
+    r = resolve("Maison Margiela Replica leather jacket", "maison margiela")
+    assert r.model_name == "Replica"
+    assert r.archetype == "outerwear"
+
+
+def test_bare_track_is_not_the_sneaker():
+    # bare "track" is not a model token, so a Balenciaga track jacket resolves by
+    # its garment word, never to the Track sneaker
+    j = resolve("Balenciaga Track Jacket", "balenciaga")
+    assert j.model_name is None
+    assert j.archetype == "outerwear"
+    s = resolve("Balenciaga Track trainers", "balenciaga")
+    assert s.model_name == "Track"
+    assert s.archetype == "footwear"
+
+
+def test_grail_footwear_models_resolve():
+    for title in ["Balenciaga Triple S", "Saint Laurent Wyatt boots",
+                  "Dior Homme Navigate boots"]:
+        assert resolve(title, "").archetype == "footwear", title

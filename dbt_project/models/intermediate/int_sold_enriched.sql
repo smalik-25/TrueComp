@@ -4,6 +4,7 @@
 select
     s.sold_id,
     s.piece_id,
+    s.size_id,
     s.raw_title,
     pc.brand_norm,
     pc.archetype,
