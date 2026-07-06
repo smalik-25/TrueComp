@@ -62,3 +62,20 @@ models:
       - name: model_name
         tests:
           - not_null   # spreads are only reported for identified model-level pieces
+
+  - name: mart_arbitrage
+    description: >
+      Active asks priced below a piece's P10 sold price, for pieces with >=3 comps,
+      ranked by discount to the sold median. An ask under the sold-comp floor, not a
+      profit promise. Empty until an active-listing pull loads fact_active_listing.
+    columns:
+      - name: piece_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_piece')
+              field: piece_id
+      - name: confidence_grade
+        tests:
+          - accepted_values:
+              values: ['A', 'B', 'C', 'D']

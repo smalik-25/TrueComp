@@ -6,6 +6,7 @@ sources:
     schema: public
     tables:
       - name: fact_sold_listing
+      - name: fact_active_listing
       - name: dim_piece
       - name: dim_brand
       - name: dim_marketplace
