@@ -15,6 +15,7 @@ Scope is menswear only.
 - A searchable corpus of resolved pieces, each with a median sold price, a comp count, and a confidence grade from A to D that says how much data stands behind the median.
 - A piece page: the price band, the distribution of individual sales, how fast it sells, how far it marks down from ask, and a cross-marketplace spread where one exists.
 - A method page that explains how resolution works and, in the same breath, where it fails.
+- Identify: upload a photo and match it against the reference grails, with a confidence-graded read on brand, type, and likely model, plus the real comps for the nearest pieces.
 
 ## Screens
 
@@ -44,6 +45,10 @@ Next.js on Vercel (thin read layer)
 
 Ingestion runs on Apify plus GitHub Actions, never on Vercel. Every source enters through an adapter, so a renamed or broken actor is a one-file swap and no source-specific field leaks past that boundary. Storage is Neon. The analytics live in SQL and dbt marts. The frontend only queries and renders.
 
+## Visual search
+
+Upload a photo and it is embedded by a zero-shot fashion CLIP model on a scale-to-zero GPU worker, compared by cosine distance against the reference set's embeddings in pgvector, and rolled up to the nearest resolved pieces with their comps. Resolution stays text-first: the image embeddings are a retrieval layer over the already-resolved set and never feed how a piece is identified. Measured leave-one-out, the nearest match lands the right brand about 95 percent of the time and the right model about 93, and the interface hedges the model and refuses out-of-set guesses. Query images are embedded and then deleted.
+
 ## What it does not claim
 
 The site says what the data supports and no more, the same way the method page does.
@@ -53,6 +58,7 @@ The site says what the data supports and no more, the same way the method page d
 - A recommended list price is anchored on sold comps where they exist and falls back to a brand-and-archetype level where they do not. It is a read on where the piece has cleared, not a promise of what yours will.
 - The price model is measured against a plain brand-and-archetype median baseline and reported honestly, including where it does not beat that baseline.
 - Cross-marketplace spread only appears where a piece has enough resolved sales on both sides to compare. That is a small set, and the site does not pretend otherwise.
+- Visual search is zero-shot and graded leave-one-out on listing photos, so its brand-95 and model-93 accuracy is an upper bound. A real phone photo does worse, it cannot tell a real from a good replica, and a piece outside the reference set is told there is no strong match rather than given a forced guess.
 
 ## Data sources
 
@@ -70,6 +76,8 @@ resolution/           entity resolution and normalization
 db/schema.sql         canonical star schema
 dbt_project/          staging -> intermediate -> marts
 ml/                   price model and arbitrage detector
+worker/               scale-to-zero GPU image-embedding worker (Modal)
+retrieval/            visual-search embeddings and retrieval eval
 web/                  Next.js read layer (Vercel)
 .github/workflows/    scheduled ingestion
 ```
@@ -92,4 +100,5 @@ Copy `.env.example` to `.env` and fill in `APIFY_TOKEN` and `DATABASE_URL`. The 
 - [x] Phase 2: entity resolution
 - [x] Phase 3: marts and analytics
 - [x] Phase 4: standalone site, deployed on Vercel
-- [x] Phase 5: price model, evaluated honestly; arbitrage detector built, awaiting an active-listing pull
+- [x] Phase 5: price model, evaluated honestly; arbitrage detector built and activated on a targeted active-listing pull
+- [x] Phase 6: grail focus, deeper model-level resolution, and zero-shot visual search over the reference set

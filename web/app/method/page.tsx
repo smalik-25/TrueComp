@@ -21,6 +21,7 @@ const LIMITS = [
   "Thin pieces fall back to a brand-and-archetype median, and say so.",
   "Confidence is graded by sample size, next to every price.",
   "Cross-marketplace spreads appear only where they can be stood behind.",
+  "Visual search is zero-shot and graded leave-one-out; a real phone photo, or a piece outside the eighteen, does worse and is told so.",
 ];
 
 export default async function MethodPage() {
@@ -88,6 +89,29 @@ export default async function MethodPage() {
               way that matters, and saying so plainly is the point.
             </p>
             <ModelErrorPanel />
+          </MethodStep>
+
+          <MethodStep n={6} title="Visual search, and what it can and cannot see">
+            <p>
+              Upload a photo and it is matched against a reference set of{" "}
+              <span className="num">943</span> listing images of the eighteen grails, embedded once
+              with an off-the-shelf fashion CLIP model and stored as vectors in Postgres. The query
+              image is embedded on a GPU that scales to zero, the nearest references are found by
+              cosine distance, and those roll up to resolved pieces with their real comps. No
+              fine-tuning: this is zero-shot similarity, nothing more.
+            </p>
+            <p>
+              Measured leave-one-out on the reference set, the nearest match shares the correct
+              brand <span className="num">95%</span> of the time, the correct model{" "}
+              <span className="num">93%</span>, and the exact piece <span className="num">86%</span>;
+              widen to the top ten and brand reaches <span className="num">99%</span>. That ordering
+              is the honest one: brand and type are reliable, the exact model is a hedge, the season
+              is a guess. It is also an upper bound, because query and reference are both resale
+              listing photos, so a real phone photo in bad light does worse, most of all on the soft
+              items the grail set already flags, Dior denim and Undercover graphics. It cannot tell a
+              real from a good replica, and a piece outside the eighteen comes back as no strong
+              match rather than a forced answer.
+            </p>
           </MethodStep>
         </div>
 
