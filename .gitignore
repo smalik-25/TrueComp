@@ -12,6 +12,8 @@ PROJECT_PLAN.md
 ADAPTER_MAPPINGS.md
 SEED_INPUTS.md
 WEBSITE_PLAN.md
+EXTENSION_PLAN.md
+GRAIL_REFERENCE_REPORT.md
 /notes/
 /.claude/
 /files/
@@ -20,8 +22,7 @@ WEBSITE_PLAN.md
 # === Python ===
 __pycache__/
 *.py[cod]
-.venv
-.venv/
+.venv*
 venv/
 .pytest_cache/
 .ruff_cache/
