@@ -496,6 +496,18 @@ ul {
   border-color: var(--rule-strong);
   transform: translateY(-2px);
 }
+.piece-card-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.piece-card-kicker {
+  font-family: var(--font-mono);
+  font-size: var(--t-caption);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blood-bright);
+}
 .piece-card-brand {
   font-family: var(--font-serif);
   font-size: var(--t-h3);
@@ -1045,9 +1057,14 @@ ul {
   letter-spacing: -0.015em;
 }
 .piece-header-brand {
+  display: block;
   color: var(--ink-primary);
 }
 .piece-header-model {
+  display: block;
+  margin-top: var(--space-2);
+  font-size: 0.48em;
+  line-height: 1.1;
   color: var(--ink-secondary);
 }
 .piece-header-meta {
@@ -1545,18 +1562,96 @@ ul {
 /* =========================================================================
    Colophon
    ========================================================================= */
-.colophon-type {
+/* The type section was removed from the colophon; its styles went with it. */
+
+/* =========================================================================
+   Arbitrage: the underpriced view and the per-piece flag
+   ========================================================================= */
+.arb-list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-3);
 }
-.colophon-type-row {
+.arb-row {
   display: flex;
-  align-items: baseline;
-  gap: var(--space-5);
   flex-wrap: wrap;
-  padding-bottom: var(--space-3);
-  border-bottom: 1px solid var(--rule);
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface-raised);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  transition: border-color var(--dur-base) var(--ease-out);
+}
+.arb-row:hover {
+  border-color: var(--rule-strong);
+}
+.arb-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.arb-kicker {
+  font-family: var(--font-mono);
+  font-size: var(--t-caption);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blood-bright);
+}
+.arb-name {
+  font-family: var(--font-serif);
+  font-size: var(--t-h3);
+  color: var(--ink-primary);
+}
+.arb-metrics {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+.arb-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.arb-label {
+  font-family: var(--font-mono);
+  font-size: var(--t-caption);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+}
+.arb-value {
+  font-family: var(--font-mono);
+  font-size: var(--t-small);
+  color: var(--ink-primary);
+}
+.arb-under {
+  color: var(--blood-bright);
+}
+.arb-flag {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  margin-block: var(--space-4);
+  border-left: 2px solid var(--blood);
+  background: var(--surface-raised);
+  border-radius: var(--radius);
+}
+.arb-flag-label {
+  font-family: var(--font-mono);
+  font-size: var(--t-caption);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blood-bright);
+}
+.arb-flag-body {
+  font-size: var(--t-small);
+  color: var(--ink-secondary);
+  max-width: 60ch;
 }
 
 /* =========================================================================

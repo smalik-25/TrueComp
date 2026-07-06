@@ -4,6 +4,7 @@ import { fraunces, inter, geistMono } from "./fonts";
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { TopNav } from "@/components/TopNav";
 import { Footer } from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 import { SITE_URL } from "@/lib/site";
 
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
           <Footer />
         </div>
+        <Analytics />
       </body>
     </html>
   );

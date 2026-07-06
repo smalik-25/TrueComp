@@ -10,8 +10,8 @@ import { Wordmark } from "./Wordmark";
 const LINKS = [
   { href: "/search", label: "Search" },
   { href: "/method", label: "Method" },
+  { href: "/underpriced", label: "Underpriced" },
   { href: "/colophon", label: "Colophon" },
-  { href: "/styleguide", label: "Styleguide" },
 ];
 
 export function TopNav() {

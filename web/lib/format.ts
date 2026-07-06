@@ -53,16 +53,64 @@ export function formatCount(
   return `${rounded.toLocaleString("en-US")} ${unit}${rounded === 1 ? "" : "s"}`;
 }
 
-// brand_norm is the normalized dedup token (lowercased), not a display name, so
-// it is title-cased for the serif. model_name already carries real casing (GAT,
-// Geobasket) and must be shown verbatim. A proper display-name mapping is a data
-// task; this is the honest read-layer default. Normalization artifacts such as
-// "number n ine" surface as-is rather than being silently rewritten.
-export function displayBrand(brand: string): string {
+// brand_norm is the normalized dedup token (lowercased, punctuation collapsed),
+// not a display name. Title-casing it mangles exactly the names this audience
+// knows, so map the corpus's brands to their real spelling: the cedilla in Comme
+// des Garcons, the accents in Enfants Riches Deprimes, the parenthetical in
+// Number (N)ine, the stylized 1017 ALYX 9SM. model_name already carries real
+// casing (GAT, Geobasket) and is shown verbatim, so it is not mapped here.
+// Unmapped brands fall back to a title-case so a new brand still reads legibly.
+const BRAND_DISPLAY: Record<string, string> = {
+  "rick owens": "Rick Owens",
+  "raf simons": "Raf Simons",
+  julius: "Julius",
+  "number n ine": "Number (N)ine",
+  "maison margiela": "Maison Margiela",
+  undercover: "Undercover",
+  "yohji yamamoto": "Yohji Yamamoto",
+  visvim: "Visvim",
+  "craig green": "Craig Green",
+  vetements: "Vetements",
+  "comme des garcons": "Comme des Garçons",
+  "ann demeulemeester": "Ann Demeulemeester",
+  "carol christian poell": "Carol Christian Poell",
+  "helmut lang": "Helmut Lang",
+  "acne studios": "Acne Studios",
+  "kiko kostadinov": "Kiko Kostadinov",
+  "wales bonner": "Wales Bonner",
+  "white mountaineering": "White Mountaineering",
+  "enfants riches deprimes": "Enfants Riches Déprimés",
+  "boris bidjan saberi": "Boris Bidjan Saberi",
+  "stone island": "Stone Island",
+  "our legacy": "Our Legacy",
+  "bottega veneta": "Bottega Veneta",
+  neighborhood: "Neighborhood",
+  needles: "Needles",
+  kapital: "Kapital",
+  "issey miyake": "Issey Miyake",
+  "c p company": "C.P. Company",
+  "1017 alyx 9sm": "1017 ALYX 9SM",
+  supreme: "Supreme",
+  guidi: "Guidi",
+  "off white": "Off-White",
+  salomon: "Salomon",
+  // grail-set brands arriving with the corpus expansion
+  "saint laurent": "Saint Laurent",
+  dior: "Dior",
+  "dior homme": "Dior Homme",
+  balenciaga: "Balenciaga",
+  "mihara yasuhiro": "Mihara Yasuhiro",
+};
+
+function titleCaseBrand(brand: string): string {
   return brand
     .split(" ")
     .map((w) => (w ? w[0].toUpperCase() + w.slice(1) : w))
     .join(" ");
+}
+
+export function displayBrand(brand: string): string {
+  return BRAND_DISPLAY[brand] ?? titleCaseBrand(brand);
 }
 
 // A ratio column (markdown, spread) rendered as a signed percent.

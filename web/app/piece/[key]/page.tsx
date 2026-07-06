@@ -3,10 +3,12 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getPieceByKey, getStaticPieceKeys } from "@/lib/queries/pieces";
 import { getVelocity, getSpread, getMarkdown, getSales } from "@/lib/queries/detail";
+import { getArbitrageForPiece } from "@/lib/queries/arbitrage";
 import { displayBrand } from "@/lib/format";
 import { Container } from "@/components/Container";
 import { PieceHeader } from "@/components/PieceHeader";
 import { RecommendationBlock } from "@/components/RecommendationBlock";
+import { ArbitrageFlag } from "@/components/ArbitrageFlag";
 import { ThinDataNotice } from "@/components/ThinDataNotice";
 import { SectionRule } from "@/components/SectionRule";
 import { PriceBands } from "@/components/PriceBands";
@@ -54,11 +56,12 @@ export default async function PiecePage({ params }: { params: { key: string } })
   const piece = await loadPiece(decodeKey(params.key));
   if (!piece) notFound();
 
-  const [velocity, spread, markdown, sales] = await Promise.all([
+  const [velocity, spread, markdown, sales, arbitrage] = await Promise.all([
     getVelocity(piece.piece_id),
     getSpread(piece.piece_id),
     getMarkdown(piece.piece_id),
     getSales(piece.piece_id),
+    getArbitrageForPiece(piece.piece_id),
   ]);
 
   const points = sales.map((s) => ({
@@ -90,6 +93,8 @@ export default async function PiecePage({ params }: { params: { key: string } })
         />
 
         {piece.recommended_basis === "brand_archetype_fallback" ? <ThinDataNotice /> : null}
+
+        <ArbitrageFlag signals={arbitrage} />
 
         <Reveal>
           <SectionRule label="Price band" />

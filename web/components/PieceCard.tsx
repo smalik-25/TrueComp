@@ -10,6 +10,7 @@ type Grade = "A" | "B" | "C" | "D";
 export function PieceCard({
   canonicalKey,
   brand,
+  archetype,
   model,
   season,
   medianUsd,
@@ -18,6 +19,7 @@ export function PieceCard({
 }: {
   canonicalKey?: string;
   brand: string;
+  archetype?: string | null;
   model?: string | null;
   season?: string | null;
   medianUsd: string | number;
@@ -26,12 +28,17 @@ export function PieceCard({
 }) {
   const body = (
     <>
-      <div className="stack-2">
+      <div className="piece-card-identity">
+        {archetype ? <span className="piece-card-kicker">{archetype}</span> : null}
         <span className="piece-card-brand">{brand}</span>
-        <span className="piece-card-model">
-          {model ?? "Unspecified model"}
-          {season ? <span className="mono ink-3"> · {season}</span> : null}
-        </span>
+        {model ? (
+          <span className="piece-card-model">
+            {model}
+            {season ? <span className="mono ink-3"> · {season}</span> : null}
+          </span>
+        ) : season ? (
+          <span className="piece-card-model mono ink-3">{season}</span>
+        ) : null}
       </div>
       <div className="piece-card-meta">
         <div className="piece-card-metric">

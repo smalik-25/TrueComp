@@ -118,6 +118,7 @@ export function SearchBrowse({ pieces }: { pieces: PieceComp[] }) {
                 key={p.canonical_key}
                 canonicalKey={p.canonical_key}
                 brand={displayBrand(p.brand_norm)}
+                archetype={p.archetype}
                 model={p.model_name}
                 season={p.season_code}
                 medianUsd={p.median_usd}

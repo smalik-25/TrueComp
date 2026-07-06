@@ -25,22 +25,6 @@ export default function ColophonPage() {
           </p>
         </div>
 
-        <SectionRule label="The type" />
-        <div className="colophon-type">
-          <div className="colophon-type-row">
-            <span className="serif t-h2">Fraunces</span>
-            <span className="t-small ink-2">the relic voice: names, headings, prose</span>
-          </div>
-          <div className="colophon-type-row">
-            <span className="mono t-h3">Geist Mono</span>
-            <span className="t-small ink-2">the query voice: every price, count, date, code</span>
-          </div>
-          <div className="colophon-type-row">
-            <span className="sans t-h3">Inter</span>
-            <span className="t-small ink-2">the connective tissue: body copy and controls</span>
-          </div>
-        </div>
-
         <SectionRule label="The sources" />
         <div className="prose measure">
           <p>

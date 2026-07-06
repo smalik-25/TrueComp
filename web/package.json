@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "@visx/axis": "3.10.1",
     "@visx/group": "3.3.0",
     "@visx/scale": "3.5.0",

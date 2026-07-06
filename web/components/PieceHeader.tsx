@@ -32,7 +32,7 @@ export function PieceHeader({
       <p className="kicker">{archetype ?? "Piece"}</p>
       <h1 className="piece-header-title">
         <span className="piece-header-brand">{displayBrand(brand)}</span>
-        {model ? <span className="piece-header-model"> {model}</span> : null}
+        {model ? <span className="piece-header-model">{model}</span> : null}
       </h1>
       <div className="piece-header-meta">
         {season ? <span className="mono">Season {season}</span> : null}
