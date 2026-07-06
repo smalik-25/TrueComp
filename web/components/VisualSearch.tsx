@@ -191,10 +191,10 @@ export function VisualSearch() {
         onDragOver={(e) => e.preventDefault()}
         onDrop={onDrop}
       >
-        <input ref={inputRef} type="file" accept={ACCEPT} onChange={onPick} hidden />
+        <input ref={inputRef} type="file" accept={ACCEPT} onChange={onPick} className="sr-only" />
         {preview ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={preview} alt="your upload" className="vs-preview" />
+          <img src={preview} alt="Photo you uploaded for visual search" className="vs-preview" />
         ) : (
           <span className="vs-drop-copy">
             <strong>Drop a photo</strong> or click to choose. JPEG, PNG, WebP, or HEIC.

@@ -47,6 +47,11 @@ export default async function UnderpricedPage() {
                   {s.raw_title ? (
                     <span className="t-caption ink-faint">{s.raw_title}</span>
                   ) : null}
+                  {s.n_listings > 1 ? (
+                    <span className="t-caption arb-multi">
+                      {formatInt(s.n_listings)} listings at this ask
+                    </span>
+                  ) : null}
                 </div>
                 <div className="arb-metrics">
                   <div className="arb-metric">

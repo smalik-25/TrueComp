@@ -1,11 +1,10 @@
 import Link from "next/link";
 
-// The wordmark splits one word across two typefaces: Reli in the serif (the
-// relic), Query in the mono (the query). That split is the whole design
-// language. The mono is tuned down in CSS (.wordmark-query) so Query does not
-// sit heavier than Reli. Two variants:
-//   lockup  camel-case "ReliQuery", Query in oxblood  (hero, headings)
-//   nav     all-caps "RELI·QUERY", tighter, bright accent  (top nav)
+// One wordmark everywhere: CamelCase "ReliQuery", both halves the same size.
+// Reli in the serif (the relic), Query in the mono and oxblood (the query). The
+// split is by typeface and tone, never by size, so Query never sits smaller than
+// Reli. The `nav` variant only scales the whole lockup down for the top bar and
+// footer; it renders the identical CamelCase mark.
 
 type Variant = "lockup" | "nav";
 
@@ -21,29 +20,20 @@ export function Wordmark({
   style?: React.CSSProperties;
 }) {
   const label = "ReliQuery";
-  const inner =
-    variant === "nav" ? (
-      <span className={`wordmark wordmark--nav ${className ?? ""}`} style={style} aria-label={label}>
-        <span className="wordmark-reli" aria-hidden="true">
-          Reli
-        </span>
-        <span className="wordmark-mid" aria-hidden="true">
-          ·
-        </span>
-        <span className="wordmark-query" aria-hidden="true">
-          Query
-        </span>
+  const inner = (
+    <span
+      className={`wordmark ${variant === "nav" ? "wordmark--nav" : ""} ${className ?? ""}`}
+      style={style}
+      aria-label={label}
+    >
+      <span className="wordmark-reli" aria-hidden="true">
+        Reli
       </span>
-    ) : (
-      <span className={`wordmark ${className ?? ""}`} style={style} aria-label={label}>
-        <span className="wordmark-reli" aria-hidden="true">
-          Reli
-        </span>
-        <span className="wordmark-query" aria-hidden="true">
-          Query
-        </span>
+      <span className="wordmark-query" aria-hidden="true">
+        Query
       </span>
-    );
+    </span>
+  );
 
   if (href) {
     return (

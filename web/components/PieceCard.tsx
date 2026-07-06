@@ -14,6 +14,8 @@ export function PieceCard({
   model,
   season,
   medianUsd,
+  p10Usd,
+  p90Usd,
   nSold,
   grade,
 }: {
@@ -23,6 +25,8 @@ export function PieceCard({
   model?: string | null;
   season?: string | null;
   medianUsd: string | number;
+  p10Usd?: string | number | null;
+  p90Usd?: string | number | null;
   nSold: string | number;
   grade: Grade;
 }) {
@@ -44,6 +48,11 @@ export function PieceCard({
         <div className="piece-card-metric">
           <span className="piece-card-metric-label">Median</span>
           <span className="piece-card-metric-value">{formatUsd(medianUsd)}</span>
+          {p10Usd && p90Usd ? (
+            <span className="piece-card-range">
+              {formatUsd(p10Usd)} to {formatUsd(p90Usd)}
+            </span>
+          ) : null}
         </div>
         <div className="piece-card-metric">
           <span className="piece-card-metric-label">Comps</span>

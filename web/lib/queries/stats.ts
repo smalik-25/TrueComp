@@ -2,8 +2,7 @@ import "server-only";
 import { db } from "../db";
 
 // Summary counts for the landing stat strip. Everything traces to a mart or the
-// cleaned intermediate. "Last refresh" is intentionally absent: no run timestamp
-// is persisted anywhere the site can read, so it is not invented here.
+// cleaned intermediate.
 export type SiteStats = {
   pieces: number;
   sold_rows: number;
@@ -20,4 +19,19 @@ export async function getSiteStats(): Promise<SiteStats> {
        (select count(*)::int from mart_cross_marketplace_spread) as cross_market_pieces`,
   );
   return rows[0] as unknown as SiteStats;
+}
+
+// The freshest eBay sold date, formatted "Mon YYYY". Grailed sold dates are
+// dropped by design, so this is honestly "eBay-dated through", not a refresh
+// timestamp. Null (and the footer omits the line) if no dated comp exists or the
+// database is unreachable, so it never breaks the layout it renders in.
+export async function getLatestSold(): Promise<string | null> {
+  try {
+    const rows = await db().unsafe(
+      `select to_char(max(sold_date), 'Mon YYYY') as latest_sold from int_sold_clean`,
+    );
+    return (rows[0] as unknown as { latest_sold: string | null })?.latest_sold ?? null;
+  } catch {
+    return null;
+  }
 }

@@ -49,9 +49,14 @@ export default async function Home() {
       <SectionRule label="What this is" />
       <div className="prose measure">
         <p>
-          A repricing tool for luxury, archive, and avant-garde menswear resale. The hard part is
-          not scraping, it is resolving the same piece across marketplaces that share no common key.
-          Every number on the site traces to a sold record.
+          A sold-comparables and repricing tool for archive and avant-garde menswear. The hard part
+          is not scraping, it is resolving the same piece across marketplaces that share no common
+          key. Every number on the site traces to a sold record.
+        </p>
+        <p>
+          The sold-comps corpus spans about five hundred resolved pieces. Visual search on Identify
+          is narrower on purpose: it matches against eighteen reference grails it has been given
+          images of, and says so rather than guessing at anything outside that set.
         </p>
         <p className="ink-2">
           It does not claim a live market feed or a price oracle. Grailed comps are undated, so they

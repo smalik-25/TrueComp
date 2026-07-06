@@ -25,8 +25,10 @@
   /* Ink (bone family) */
   --ink-primary: #e8e3d6;
   --ink-secondary: #a8a093;
-  --ink-tertiary: #6e675c;
-  --ink-faint: #48423a;
+  /* Lifted from #6e675c to clear WCAG AA (>=4.5:1 on the base surfaces) for the
+     ~17 faint-label selectors and the D confidence letter that reference it. */
+  --ink-tertiary: #8c8578;
+  --ink-faint: #48423a; /* hairlines only, never text */
 
   /* Accent (oxblood), used with discipline: ~one element per view */
   --blood: #a8302e;
@@ -228,7 +230,7 @@ ul {
   color: var(--ink-tertiary);
 }
 .ink-faint {
-  color: var(--ink-faint);
+  color: var(--ink-tertiary);
 }
 .blood {
   color: var(--blood);
@@ -323,39 +325,19 @@ ul {
   letter-spacing: -0.01em;
 }
 .wordmark-query {
+  /* Same size as Reli; the two halves are split by typeface and tone only,
+     never by size. Mono runs a touch wider, so pull the tracking in, but the
+     size stays at 1em so Query never sits smaller than Reli. */
   font-family: var(--font-mono);
-  /* tuned against the serif: mono runs wide + heavy, so drop size + weight
-     and pull the tracking in, then nudge the baseline to sit with Reli */
-  font-size: 0.78em;
-  font-weight: 450;
-  letter-spacing: -0.02em;
-  color: var(--blood);
-  position: relative;
-  top: -0.01em;
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--blood-bright);
 }
 
-/* Nav lockup: all-caps RELI·QUERY, smaller, bright accent at small size */
+/* Nav and footer render the identical CamelCase mark, just scaled down. */
 .wordmark--nav {
   font-size: var(--t-h3);
-  align-items: baseline;
-}
-.wordmark--nav .wordmark-reli {
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 560;
-}
-.wordmark--nav .wordmark-mid {
-  font-family: var(--font-mono);
-  color: var(--ink-tertiary);
-  font-size: 0.7em;
-  margin-inline: 0.12em;
-}
-.wordmark--nav .wordmark-query {
-  font-size: 0.7em;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--blood-bright);
-  top: 0;
 }
 
 /* =========================================================================
@@ -403,6 +385,58 @@ ul {
   margin-top: 3px;
   background: var(--blood);
 }
+.nav-live-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: var(--blood-bright);
+  vertical-align: middle;
+}
+.nav-toggle {
+  /* Hidden on desktop; the link row shows. Appears only below the breakpoint. */
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-secondary);
+  padding: var(--space-2);
+  margin: calc(-1 * var(--space-2));
+  cursor: pointer;
+}
+.nav-toggle:hover {
+  color: var(--ink-primary);
+}
+
+/* 800px is the one mobile breakpoint: nav, result grid, and filters switch here
+   together (custom properties are not allowed in media conditions, so it is a
+   literal). Below it the nav collapses to a toggle-driven dropdown. */
+@media (max-width: 800px) {
+  .nav-toggle {
+    display: inline-flex;
+  }
+  .topnav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: var(--space-3) var(--grid-margin) var(--space-4);
+    background: var(--surface-overlay);
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  .topnav-links[data-open="false"] {
+    display: none;
+  }
+  .navlink {
+    padding-block: var(--space-3);
+  }
+  .navlink[data-active="true"]::after {
+    display: none;
+  }
+}
 
 /* =========================================================================
    Footer
@@ -424,6 +458,17 @@ ul {
   font-size: var(--t-caption);
   color: var(--ink-tertiary);
   max-width: 52ch;
+}
+.footer-sig {
+  font-family: var(--font-mono);
+  font-size: var(--t-caption);
+  line-height: 1.7;
+  color: var(--ink-tertiary);
+}
+.footer-sig a,
+.footer a {
+  color: var(--ink-secondary);
+  text-decoration: underline;
 }
 
 /* =========================================================================
@@ -1211,6 +1256,46 @@ ul {
 }
 
 /* Comp table */
+.comp-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.comp-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+.comp-source-btn {
+  font-family: var(--font-mono);
+  font-size: var(--t-caption);
+  color: var(--ink-secondary);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.comp-source-btn[data-on="true"] {
+  color: var(--ink-primary);
+  border-color: var(--blood);
+}
+.comp-count {
+  margin-left: auto;
+  font-size: var(--t-caption);
+  color: var(--ink-tertiary);
+}
+.comp-pager {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+.comp-more {
+  font-family: var(--font-mono);
+  font-size: var(--t-small);
+  color: var(--blood-bright);
+  cursor: pointer;
+}
 .comp-table-wrap {
   overflow-x: auto;
   border: 1px solid var(--rule);
@@ -1296,6 +1381,43 @@ ul {
 .search-meta .sort-control {
   margin-left: auto;
 }
+.filters-trigger {
+  /* mobile-only: the rail is always visible on desktop */
+  display: none;
+  align-items: center;
+  gap: var(--space-2);
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: var(--t-caption);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.filters-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5em;
+  padding: 0 0.35em;
+  border-radius: 999px;
+  background: var(--blood-bright);
+  color: var(--surface-void);
+  font-size: 0.85em;
+}
+.filter-done {
+  font-family: var(--font-mono);
+  font-size: var(--t-caption);
+  color: var(--blood-bright);
+  cursor: pointer;
+}
+.filter-scrim,
+.filter-panel-head {
+  display: none; /* desktop: no drawer chrome; the rail sits in the grid */
+}
 .search-body {
   display: grid;
   grid-template-columns: 240px 1fr;
@@ -1304,7 +1426,55 @@ ul {
 }
 @media (max-width: 800px) {
   .search-body {
-    grid-template-columns: 1fr;
+    display: block;
+  }
+  .filters-trigger {
+    display: inline-flex;
+  }
+  .filter-shell {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+  }
+  .filter-shell[data-open="false"] {
+    pointer-events: none;
+    visibility: hidden;
+  }
+  .filter-scrim {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    background: color-mix(in srgb, var(--surface-void) 62%, transparent);
+    border: none;
+    cursor: pointer;
+  }
+  .filter-panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 85dvh;
+    overflow-y: auto;
+    background: var(--surface-overlay);
+    border-top: 1px solid var(--rule-strong);
+    border-radius: 12px 12px 0 0;
+    padding: var(--space-5);
+    transform: translateY(100%);
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+  .filter-shell[data-open="true"] .filter-panel {
+    transform: translateY(0);
+  }
+  .filter-panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+  }
+  .filter-rail {
+    position: static;
+    top: auto;
   }
 }
 .filter-rail {
@@ -1349,8 +1519,59 @@ ul {
 }
 .piece-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  /* min(100%, 240px) so a single column can shrink below 240px instead of
+     overflowing the viewport on the narrowest phones. */
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
   gap: var(--space-4);
+}
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+.active-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: var(--font-mono);
+  font-size: var(--t-caption);
+  color: var(--ink-primary);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface-raised);
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.active-filter-chip:hover {
+  border-color: var(--blood);
+}
+.active-filter-clear {
+  font-family: var(--font-mono);
+  font-size: var(--t-caption);
+  color: var(--blood-bright);
+  cursor: pointer;
+  margin-left: var(--space-2);
+}
+.piece-card-range {
+  font-family: var(--font-mono);
+  font-size: var(--t-caption);
+  color: var(--ink-tertiary);
+}
+.confidence-pips {
+  display: inline-flex;
+  gap: 2px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+.confidence-pip {
+  width: 3px;
+  height: 9px;
+  border-radius: 1px;
+  background: var(--rule-strong);
+}
+.confidence-pip[data-on="true"] {
+  background: var(--ink-secondary);
 }
 
 /* =========================================================================
@@ -1631,6 +1852,10 @@ ul {
 .arb-under {
   color: var(--blood-bright);
 }
+.arb-multi {
+  font-family: var(--font-mono);
+  color: var(--ink-secondary);
+}
 .arb-flag {
   display: flex;
   flex-direction: column;
@@ -1758,6 +1983,9 @@ ul {
 }
 .vs-drop:hover {
   border-color: var(--blood);
+}
+.vs-drop:focus-within {
+  border-color: var(--focus);
 }
 .vs-drop[data-busy="true"] {
   opacity: 0.6;
@@ -1896,7 +2124,7 @@ ul {
   color: var(--blood-bright);
 }
 .vs-price-range {
-  color: var(--ink-faint);
+  color: var(--ink-tertiary);
 }
 .vs-comps {
   color: var(--ink-secondary);
@@ -1926,11 +2154,39 @@ ul {
   font-family: var(--font-mono);
   font-size: var(--t-caption);
   line-height: 1.6;
-  color: var(--ink-faint);
+  color: var(--ink-tertiary);
   margin-top: var(--space-2);
 }
 .vs-footnote a {
   color: var(--ink-secondary);
   text-decoration: underline;
+}
+
+/* The reference-grail index on Identify */
+.grail-index {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+}
+.grail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
+  gap: var(--space-5);
+}
+.grail-brand-name {
+  font-family: var(--font-serif);
+  font-size: var(--t-h3);
+  color: var(--ink-primary);
+  margin-bottom: var(--space-2);
+}
+.grail-models {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--font-mono);
+  font-size: var(--t-small);
+  color: var(--ink-secondary);
 }
 

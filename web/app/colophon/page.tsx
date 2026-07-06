@@ -12,7 +12,9 @@ export default function ColophonPage() {
       <article className="colophon">
         <header className="stack-4" style={{ paddingBlock: "var(--space-7)" }}>
           <KickerLabel>The name, and how it is built</KickerLabel>
-          <Wordmark style={{ fontSize: "var(--t-display)" }} />
+          <h1 style={{ margin: 0 }}>
+            <Wordmark style={{ fontSize: "var(--t-display)" }} />
+          </h1>
         </header>
 
         <SectionRule label="The name" />

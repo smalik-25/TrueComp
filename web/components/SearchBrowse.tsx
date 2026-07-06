@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { PieceComp } from "@/lib/queries/pieces";
 import { displayBrand, formatInt } from "@/lib/format";
 import { SearchInput } from "./SearchInput";
@@ -79,37 +79,123 @@ export function SearchBrowse({ pieces }: { pieces: PieceComp[] }) {
   };
 
   const anyActive = brands.size > 0 || archetypes.size > 0 || seasons.size > 0;
+  const activeCount = brands.size + archetypes.size + seasons.size;
   const clear = () => {
     setBrands(new Set());
     setArchetypes(new Set());
     setSeasons(new Set());
   };
 
+  // On mobile the rail is a bottom sheet; lock body scroll and close on Escape.
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  useEffect(() => {
+    if (!filtersOpen) return;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setFiltersOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [filtersOpen]);
+
   return (
     <div className="search-page">
       <div className="search-top">
         <SearchInput value={query} onChange={setQuery} placeholder="Rick Owens, GAT, leather jacket" />
         <div className="search-meta">
-          <span className="mono">{formatInt(results.length)} pieces</span>
+          <span className="mono">
+            {formatInt(results.length)} of {formatInt(pieces.length)} pieces
+          </span>
           {query ? <span className="mono ink-3">for &ldquo;{query}&rdquo;</span> : null}
+          <button
+            type="button"
+            className="filters-trigger"
+            aria-expanded={filtersOpen}
+            aria-controls="filter-panel"
+            onClick={() => setFiltersOpen(true)}
+          >
+            Filters
+            {activeCount > 0 ? <span className="filters-count">{activeCount}</span> : null}
+          </button>
           <SortControl value={sort} onChange={setSort} />
         </div>
       </div>
 
+      {anyActive ? (
+        <div className="active-filters">
+          {[...brands].map((b) => (
+            <button
+              key={`b-${b}`}
+              type="button"
+              className="active-filter-chip"
+              aria-label={`Remove ${displayBrand(b)} filter`}
+              onClick={() => toggle(brands, setBrands, b)}
+            >
+              {displayBrand(b)} <span aria-hidden="true">×</span>
+            </button>
+          ))}
+          {[...archetypes].map((a) => (
+            <button
+              key={`a-${a}`}
+              type="button"
+              className="active-filter-chip"
+              aria-label={`Remove ${a} filter`}
+              onClick={() => toggle(archetypes, setArchetypes, a)}
+            >
+              {a} <span aria-hidden="true">×</span>
+            </button>
+          ))}
+          {[...seasons].map((s) => (
+            <button
+              key={`s-${s}`}
+              type="button"
+              className="active-filter-chip"
+              aria-label={`Remove ${s} filter`}
+              onClick={() => toggle(seasons, setSeasons, s)}
+            >
+              {s} <span aria-hidden="true">×</span>
+            </button>
+          ))}
+          <button type="button" className="active-filter-clear" onClick={clear}>
+            Clear all
+          </button>
+        </div>
+      ) : null}
+
       <div className="search-body">
-        <FilterRail
-          brands={facets.brands}
-          archetypes={facets.archetypes}
-          seasons={facets.seasons}
-          activeBrands={brands}
-          activeArchetypes={archetypes}
-          activeSeasons={seasons}
-          onToggleBrand={(n) => toggle(brands, setBrands, n)}
-          onToggleArchetype={(n) => toggle(archetypes, setArchetypes, n)}
-          onToggleSeason={(n) => toggle(seasons, setSeasons, n)}
-          onClear={clear}
-          anyActive={anyActive}
-        />
+        <div className="filter-shell" id="filter-panel" data-open={filtersOpen}>
+          <button
+            type="button"
+            className="filter-scrim"
+            aria-label="Close filters"
+            tabIndex={-1}
+            onClick={() => setFiltersOpen(false)}
+          />
+          <div className="filter-panel">
+            <div className="filter-panel-head">
+              <span className="sort-label">Filters</span>
+              <button type="button" className="filter-done" onClick={() => setFiltersOpen(false)}>
+                Done
+              </button>
+            </div>
+            <FilterRail
+              brands={facets.brands}
+              archetypes={facets.archetypes}
+              seasons={facets.seasons}
+              activeBrands={brands}
+              activeArchetypes={archetypes}
+              activeSeasons={seasons}
+              onToggleBrand={(n) => toggle(brands, setBrands, n)}
+              onToggleArchetype={(n) => toggle(archetypes, setArchetypes, n)}
+              onToggleSeason={(n) => toggle(seasons, setSeasons, n)}
+              onClear={clear}
+              anyActive={anyActive}
+            />
+          </div>
+        </div>
 
         {results.length > 0 ? (
           <div className="piece-grid">
@@ -122,6 +208,8 @@ export function SearchBrowse({ pieces }: { pieces: PieceComp[] }) {
                 model={p.model_name}
                 season={p.season_code}
                 medianUsd={p.median_usd}
+                p10Usd={p.p10_usd}
+                p90Usd={p.p90_usd}
                 nSold={p.n_sold}
                 grade={p.confidence_grade}
               />

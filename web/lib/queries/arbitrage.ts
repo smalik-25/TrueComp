@@ -12,6 +12,7 @@ export type Arbitrage = {
   source_listing_id: string;
   raw_title: string | null;
   ask_price_usd: string;
+  n_listings: number;
   snapshot_date: string;
   brand_norm: string;
   archetype: string | null;
@@ -26,7 +27,8 @@ export type Arbitrage = {
 };
 
 const COLS = `active_id, piece_id, marketplace, source_listing_id, raw_title,
-  ask_price_usd::text as ask_price_usd, snapshot_date::text as snapshot_date,
+  ask_price_usd::text as ask_price_usd, n_listings::int as n_listings,
+  snapshot_date::text as snapshot_date,
   brand_norm, archetype, model_name, season_code,
   median_usd::text as median_usd, p10_usd::text as p10_usd, n_sold::int as n_sold,
   confidence_grade, discount_vs_median::text as discount_vs_median`;

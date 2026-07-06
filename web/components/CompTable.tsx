@@ -19,13 +19,24 @@ function marketplaceSource(m: string): "ebay" | "grailed" | "yahoo" {
   return "yahoo";
 }
 
+function sourceLabel(m: string): string {
+  if (m === "ebay") return "eBay";
+  return m.charAt(0).toUpperCase() + m.slice(1);
+}
+
+const PAGE = 25;
+
 export function CompTable({ sales }: { sales: Sale[] }) {
   const [key, setKey] = useState<SortKey>("price");
   const [dir, setDir] = useState<Dir>("desc");
+  const [source, setSource] = useState<string>("all");
+  const [visible, setVisible] = useState(PAGE);
   const { range, setRange } = useHighlight();
 
+  const sources = useMemo(() => Array.from(new Set(sales.map((s) => s.marketplace))), [sales]);
+
   const sorted = useMemo(() => {
-    const rows = [...sales];
+    const rows = sales.filter((s) => source === "all" || s.marketplace === source);
     const sign = dir === "asc" ? 1 : -1;
     rows.sort((a, b) => {
       if (key === "price") return sign * (Number(a.sold_price_usd) - Number(b.sold_price_usd));
@@ -37,7 +48,9 @@ export function CompTable({ sales }: { sales: Sale[] }) {
       return sign * a.sold_date.localeCompare(b.sold_date);
     });
     return rows;
-  }, [sales, key, dir]);
+  }, [sales, key, dir, source]);
+
+  const shown = sorted.slice(0, visible);
 
   const sortBy = (k: SortKey) => {
     if (k === key) setDir(dir === "asc" ? "desc" : "asc");
@@ -45,13 +58,44 @@ export function CompTable({ sales }: { sales: Sale[] }) {
       setKey(k);
       setDir(k === "marketplace" ? "asc" : "desc");
     }
+    setVisible(PAGE);
+  };
+
+  const pickSource = (s: string) => {
+    setSource(s);
+    setVisible(PAGE);
   };
 
   const ariaSort = (k: SortKey) => (key === k ? (dir === "asc" ? "ascending" : "descending") : "none");
   const caret = (k: SortKey) => (key === k ? (dir === "asc" ? "↑" : "↓") : "");
 
   return (
-    <div className="comp-table-wrap">
+    <div className="comp-section">
+      {sources.length > 1 ? (
+        <div className="comp-toolbar" role="group" aria-label="Filter comps by source">
+          <button
+            type="button"
+            className="comp-source-btn"
+            data-on={source === "all"}
+            onClick={() => pickSource("all")}
+          >
+            All
+          </button>
+          {sources.map((s) => (
+            <button
+              key={s}
+              type="button"
+              className="comp-source-btn"
+              data-on={source === s}
+              onClick={() => pickSource(s)}
+            >
+              {sourceLabel(s)}
+            </button>
+          ))}
+          <span className="comp-count mono">{sorted.length} comps</span>
+        </div>
+      ) : null}
+      <div className="comp-table-wrap">
       <table className="comp-table">
         <thead>
           <tr>
@@ -75,7 +119,7 @@ export function CompTable({ sales }: { sales: Sale[] }) {
           </tr>
         </thead>
         <tbody>
-          {sorted.map((s) => {
+          {shown.map((s) => {
             const price = Number(s.sold_price_usd);
             return (
             <tr
@@ -104,6 +148,17 @@ export function CompTable({ sales }: { sales: Sale[] }) {
           })}
         </tbody>
       </table>
+      </div>
+      {visible < sorted.length ? (
+        <div className="comp-pager">
+          <button type="button" className="comp-more" onClick={() => setVisible((v) => v + PAGE)}>
+            Show {Math.min(PAGE, sorted.length - visible)} more
+          </button>
+          <span className="mono ink-3">
+            {shown.length} of {sorted.length}
+          </span>
+        </div>
+      ) : null}
     </div>
   );
 }
