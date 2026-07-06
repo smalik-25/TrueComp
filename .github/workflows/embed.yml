@@ -1,0 +1,36 @@
+name: embed
+
+# Embeds reference images that do not yet have a vector (piece_image.embedding is
+# null) through the Modal worker, and writes the halfvec back to Neon. Manual only.
+# Idempotent: it touches only rows still missing an embedding, so a rerun after a
+# new grail pull embeds just the new images. Runs offline here, never on Vercel;
+# the worker scales to zero, so this is a small, bounded spend.
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: cap the number of images embedded (blank = all missing)
+        default: ""
+
+jobs:
+  embed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+
+      - name: Backfill embeddings
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          EMBED_ENDPOINT_URL: ${{ secrets.EMBED_ENDPOINT_URL }}
+          EMBED_AUTH_TOKEN: ${{ secrets.EMBED_AUTH_TOKEN }}
+        run: |
+          if [ -n "${{ inputs.limit }}" ]; then
+            python -m ingestion.embed_backfill --limit ${{ inputs.limit }}
+          else
+            python -m ingestion.embed_backfill
+          fi
