@@ -66,11 +66,26 @@ def _collect(args) -> dict[str, AdapterResult]:
         print("[probe] one Grailed query, maxItems=5 (tiny spend to validate the client)")
         return {"grailed": pull_grailed(max_items=5, limit_queries=1)}
 
-    # --live
+    # --live or --grail
     from .live import pull_all
 
     sources = ("grailed", "ebay") if args.source == "all" else (args.source,)
-    return pull_all(max_items=args.max_items, sources=sources)
+    return pull_all(max_items=args.max_items, sources=sources, grail=args.grail)
+
+
+def _run_active(args) -> int:
+    from .live import pull_active_grailed
+
+    res = pull_active_grailed(max_items=args.max_items)
+    print(f"[adapter] grailed-active: {res.summary}")
+    for rej in res.rejected[:20]:
+        print(f"  reject grailed-active {rej.source_listing_id}: {rej.reason}")
+    with connect() as conn:
+        loader = Loader(conn, DEFAULT_FX)
+        stats = loader.load_active(res.rows)
+        print(f"[load] grailed-active: {stats}")
+    print("next: python -m resolution.run (stamps active piece_id), then make dbt")
+    return 0
 
 
 def main() -> int:
@@ -82,8 +97,17 @@ def main() -> int:
     mode.add_argument(
         "--probe", action="store_true", help="single small live query to validate the client"
     )
+    mode.add_argument(
+        "--grail", action="store_true", help="live grail-targeted pull (spends)"
+    )
+    mode.add_argument(
+        "--active", action="store_true", help="live grail active-listing pull (spends)"
+    )
     parser.add_argument("--max-items", type=int, default=50, help="per-query cap for live pulls")
     args = parser.parse_args()
+
+    if args.active:
+        return _run_active(args)
 
     results = _collect(args)
 
@@ -95,6 +119,10 @@ def main() -> int:
     with connect() as conn:
         loader = Loader(conn, DEFAULT_FX)
         loader.seed_reference()
+        if args.grail:
+            from .grail_seeds import GRAIL_TARGETS
+
+            loader.seed_grail_targets(GRAIL_TARGETS)
         for name, res in results.items():
             stats = loader.load(res.rows)
             print(f"[load] {name}: {stats}")

@@ -85,6 +85,7 @@ class GrailedAdapter(Adapter):
                     archetype_hint=normalize.grailed_archetype(
                         raw.get("categoryPath"), raw.get("category")
                     ),
+                    image_url=raw.get("coverPhoto"),
                 )
             )
         return result

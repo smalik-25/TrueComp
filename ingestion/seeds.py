@@ -7,6 +7,8 @@ batches all keywords into a single run.
 """
 from __future__ import annotations
 
+from .grail_seeds import GRAIL_TARGETS
+
 # 30 approved brands, in the form used as a search query / keyword.
 BRANDS: list[str] = [
     "rick owens",
@@ -80,7 +82,10 @@ EBAY_KEYWORDS_PER_RUN = 6
 def ebay_inputs(max_items: int = 50) -> list[dict]:
     """Chunked eBay runs (<=6 keywords each), matching the proven actor input
     (categoryId 11450 = Clothing/Shoes/Accessories, ended-recently sort)."""
-    queries = all_queries()
+    return _ebay_inputs(all_queries(), max_items)
+
+
+def _ebay_inputs(queries: list[str], max_items: int) -> list[dict]:
     n = EBAY_KEYWORDS_PER_RUN
     chunks = [queries[i:i + n] for i in range(0, len(queries), n)]
     return [
@@ -96,4 +101,51 @@ def ebay_inputs(max_items: int = 50) -> list[dict]:
             "itemCondition": "any",
         }
         for chunk in chunks
+    ]
+
+
+# --- grail-targeted pull (extension arc) --------------------------------------
+# One search per grail target (brand plus canonical model name), capped per item.
+# Menswear/unisex soldOnly on Grailed; the same queries batched on eBay. Driven by
+# grail_seeds so it stays in step with the grail_targets table.
+
+def grail_queries() -> list[str]:
+    return [f"{t['brand_norm']} {t['canonical_name']}" for t in GRAIL_TARGETS]
+
+
+def grail_grailed_inputs(max_items: int = 40) -> list[tuple[str, dict]]:
+    return [
+        (
+            q,
+            {
+                "searchQuery": q,
+                "department": "menswear",
+                "soldOnly": True,
+                "scrapeDetails": False,
+                "maxItems": max_items,
+            },
+        )
+        for q in grail_queries()
+    ]
+
+
+def grail_ebay_inputs(max_items: int = 40) -> list[dict]:
+    return _ebay_inputs(grail_queries(), max_items)
+
+
+def grail_active_grailed_inputs(max_items: int = 40) -> list[tuple[str, dict]]:
+    """Per-target Grailed runs for ACTIVE asks (soldOnly=False), the arbitrage
+    detector's input. Same grail queries; the current ask is the listing price."""
+    return [
+        (
+            q,
+            {
+                "searchQuery": q,
+                "department": "menswear",
+                "soldOnly": False,
+                "scrapeDetails": False,
+                "maxItems": max_items,
+            },
+        )
+        for q in grail_queries()
     ]

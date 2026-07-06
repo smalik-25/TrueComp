@@ -62,6 +62,7 @@ class EbayAdapter(Adapter):
                     size_norm=None,
                     brand_raw=None,       # Phase 2 extracts brand from the title
                     archetype_hint=None,
+                    image_url=raw.get("thumbnailUrl"),
                 )
             )
         return result

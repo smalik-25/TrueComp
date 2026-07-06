@@ -71,3 +71,16 @@ def test_unknown_currency_rejected_not_misconverted():
     res = EbayAdapter().adapt(rows)
     assert res.rows == []
     assert "fx" in res.rejected[0].reason
+
+
+def test_ebay_captures_thumbnail():
+    rows = [{"itemId": "1", "soldPrice": "50.00", "soldCurrency": "USD",
+             "endedAt": "2026-07-01T00:00:00.000Z",
+             "thumbnailUrl": "https://i.ebayimg.com/images/g/x/s-l500.webp"}]
+    res = EbayAdapter().adapt(rows)
+    assert res.rows[0].image_url == "https://i.ebayimg.com/images/g/x/s-l500.webp"
+
+
+def test_ebay_fixture_carries_images(ebay_rows):
+    res = EbayAdapter().adapt(ebay_rows)
+    assert any(r.image_url for r in res.rows), "no thumbnailUrl captured from fixtures"

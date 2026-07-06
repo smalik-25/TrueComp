@@ -12,13 +12,14 @@ from dataclasses import dataclass
 
 from psycopg import Connection
 
-from .canonical import CanonicalSold
+from .canonical import CanonicalActive, CanonicalSold
 from .fx import DEFAULT_FX
 
 _FACT_COLUMNS = (
     "piece_id, marketplace_id, condition_id, size_id, source_listing_id, raw_title, "
     "sold_price, currency, sold_price_usd, list_price, markdown_pct, sold_date, "
-    "listed_no_earlier_than, listing_type, price_reliability, strata, query_keyword"
+    "listed_no_earlier_than, listing_type, price_reliability, strata, query_keyword, "
+    "image_url"
 )
 
 _FACT_INSERT = (
@@ -27,8 +28,21 @@ _FACT_INSERT = (
     "%(source_listing_id)s, %(raw_title)s, %(sold_price)s, %(currency)s, "
     "%(sold_price_usd)s, %(list_price)s, %(markdown_pct)s, %(sold_date)s, "
     "%(listed_no_earlier_than)s, %(listing_type)s, %(price_reliability)s, "
-    "%(strata)s, %(query_keyword)s) "
+    "%(strata)s, %(query_keyword)s, %(image_url)s) "
     "on conflict (marketplace_id, source_listing_id) do nothing"
+)
+
+_ACTIVE_COLUMNS = (
+    "piece_id, marketplace_id, condition_id, size_id, source_listing_id, raw_title, "
+    "ask_price, currency, ask_price_usd, snapshot_date, query_keyword"
+)
+
+_ACTIVE_INSERT = (
+    f"insert into fact_active_listing ({_ACTIVE_COLUMNS}) "
+    "values (%(piece_id)s, %(marketplace_id)s, %(condition_id)s, %(size_id)s, "
+    "%(source_listing_id)s, %(raw_title)s, %(ask_price)s, %(currency)s, "
+    "%(ask_price_usd)s, %(snapshot_date)s, %(query_keyword)s) "
+    "on conflict (marketplace_id, source_listing_id, snapshot_date) do nothing"
 )
 
 
@@ -60,6 +74,24 @@ class Loader:
                     (currency, rate),
                 )
         self.conn.commit()
+
+    def seed_grail_targets(self, targets: list[dict]) -> int:
+        """Idempotent upsert of the grail reference set into grail_targets."""
+        inserted = 0
+        with self.conn.cursor() as cur:
+            for t in targets:
+                cur.execute(
+                    "insert into grail_targets "
+                    "(brand_norm, canonical_name, archetype, alt_names, "
+                    " visual_distinctiveness, replica_hazard, notes) values "
+                    "(%(brand_norm)s, %(canonical_name)s, %(archetype)s, %(alt_names)s, "
+                    "%(visual_distinctiveness)s, %(replica_hazard)s, %(notes)s) "
+                    "on conflict (brand_norm, canonical_name) do nothing",
+                    t,
+                )
+                inserted += cur.rowcount if cur.rowcount and cur.rowcount > 0 else 0
+        self.conn.commit()
+        return inserted
 
     def marketplace_id(self, name: str) -> int:
         if name in self._marketplaces:
@@ -129,6 +161,33 @@ class Loader:
         self.conn.commit()
         return LoadStats(inserted=inserted, skipped_conflict=len(rows) - inserted)
 
+    def load_active(self, rows: list[CanonicalActive]) -> LoadStats:
+        if not rows:
+            return LoadStats()
+        params = [self._active_params(r) for r in rows]
+        with self.conn.cursor() as cur:
+            cur.executemany(_ACTIVE_INSERT, params)
+            inserted = cur.rowcount if cur.rowcount is not None and cur.rowcount >= 0 else 0
+        self.conn.commit()
+        return LoadStats(inserted=inserted, skipped_conflict=len(rows) - inserted)
+
+    def _active_params(self, r: CanonicalActive) -> dict:
+        return {
+            "piece_id": None,  # entity resolution assigns this
+            "marketplace_id": self.marketplace_id(r.marketplace),
+            "condition_id": self.condition_id(
+                r.condition_source, r.condition_raw, r.condition_grade_norm
+            ),
+            "size_id": self.size_id(r.size_raw, r.size_norm),
+            "source_listing_id": r.source_listing_id,
+            "raw_title": r.raw_title,
+            "ask_price": r.ask_price,
+            "currency": r.currency,
+            "ask_price_usd": r.ask_price_usd,
+            "snapshot_date": r.snapshot_date,
+            "query_keyword": r.query_keyword,
+        }
+
     def _fact_params(self, r: CanonicalSold) -> dict:
         return {
             "piece_id": None,  # entity resolution assigns this in Phase 2
@@ -150,4 +209,5 @@ class Loader:
             "price_reliability": r.price_reliability,
             "strata": r.strata,
             "query_keyword": r.query_keyword,
+            "image_url": r.image_url,
         }

@@ -60,6 +60,7 @@ CREATE TABLE fact_sold_listing (         -- grain = one completed sale
   price_reliability       text,          -- 'reliable' | 'best_offer'
   strata                  text,          -- Grailed hype/luxury/grailed
   query_keyword           text,          -- seed query, for audit
+  image_url               text,          -- source listing image (marketplace CDN; may expire)
   ingested_at             timestamptz DEFAULT now(),
   UNIQUE (marketplace_id, source_listing_id)
 );
@@ -76,6 +77,7 @@ CREATE TABLE fact_active_listing (        -- grain = one active-listing snapshot
   currency          text NOT NULL,
   ask_price_usd     numeric NOT NULL,
   snapshot_date     date NOT NULL,
+  query_keyword     text,                 -- seed query, for audit and resolution
   ingested_at       timestamptz DEFAULT now(),
   UNIQUE (marketplace_id, source_listing_id, snapshot_date)
 );
@@ -84,4 +86,28 @@ CREATE TABLE fx_rate (
   currency     text PRIMARY KEY,
   usd_per_unit numeric NOT NULL,
   updated_at   date
+);
+
+CREATE TABLE grail_targets (              -- the ~18 reference grails (extension arc)
+  target_id              SERIAL PRIMARY KEY,
+  brand_norm             text NOT NULL,
+  canonical_name         text NOT NULL,   -- Triple S, Tabi, Ramones...
+  archetype              text,
+  alt_names              text[] DEFAULT '{}',  -- alt-spelling dictionary, feeds resolution
+  visual_distinctiveness text,            -- high | med | low, sets retrieval expectations
+  replica_hazard         boolean DEFAULT false,
+  notes                  text,
+  UNIQUE (brand_norm, canonical_name)
+);
+
+CREATE TABLE piece_image (                -- reference images tied to resolved pieces
+  image_id          SERIAL PRIMARY KEY,
+  piece_id          int REFERENCES dim_piece(piece_id),
+  marketplace_id    int REFERENCES dim_marketplace(marketplace_id),
+  source_listing_id text NOT NULL,
+  image_url         text NOT NULL,        -- source URL (marketplace CDN; may expire)
+  cached_url        text,                 -- stable cached thumbnail (visual search)
+  is_primary        boolean DEFAULT true,
+  ingested_at       timestamptz DEFAULT now(),
+  UNIQUE (marketplace_id, source_listing_id)
 );

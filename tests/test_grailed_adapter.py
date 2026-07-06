@@ -76,3 +76,15 @@ def test_all_fixture_files_load_clean(grailed_all):
         res = GrailedAdapter().adapt(rows, query_keyword=name)
         assert res.rejected == [], f"{name} had rejects: {res.rejected}"
         assert len(res.rows) > 0
+
+
+def test_grailed_captures_cover_photo():
+    rows = [{"id": 5, "sold": True, "soldPrice": 400, "title": "Rick Owens Ramones",
+             "coverPhoto": "https://media-assets.grailed.com/prd/listing/x.jpg"}]
+    res = GrailedAdapter().adapt(rows, "rick owens")
+    assert res.rows[0].image_url == "https://media-assets.grailed.com/prd/listing/x.jpg"
+
+
+def test_grailed_fixture_carries_images(grailed_rick):
+    res = GrailedAdapter().adapt(grailed_rick, "rick owens")
+    assert any(r.image_url for r in res.rows), "no coverPhoto captured from fixtures"

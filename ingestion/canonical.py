@@ -53,6 +53,46 @@ class CanonicalSold:
     brand_raw: str | None = None
     archetype_hint: str | None = None
 
+    # media: source listing image, persisted to fact_sold_listing.image_url and
+    # the seed for the piece_image reference set (visual search)
+    image_url: str | None = None
+
+
+@dataclass(frozen=True)
+class CanonicalActive:
+    """An active ask (a listing still for sale), the arbitrage detector's input.
+
+    Mirrors CanonicalSold but carries an ask_price and a snapshot_date instead of
+    a sold price and sold date: an active listing has no sale event, only a price
+    someone is asking on a given day.
+    """
+    # identity / provenance
+    marketplace: str
+    source_listing_id: str
+    query_keyword: str | None
+
+    # text
+    raw_title: str | None
+
+    # money (already USD-normalized via fx)
+    ask_price: Decimal
+    currency: str
+    ask_price_usd: Decimal
+
+    # when this ask was observed
+    snapshot_date: date
+
+    # dimensions (per-source condition, never joined on raw text)
+    condition_source: str
+    condition_raw: str | None
+    condition_grade_norm: str
+    size_raw: str | None
+    size_norm: str | None
+
+    # entity-resolution inputs (Phase 2), not persisted to a fact column
+    brand_raw: str | None = None
+    archetype_hint: str | None = None
+
 
 @dataclass
 class Reject:
@@ -65,6 +105,20 @@ class AdapterResult:
     rows: list[CanonicalSold] = field(default_factory=list)
     rejected: list[Reject] = field(default_factory=list)
     skipped: int = 0                        # rows intentionally not a sold comp
+
+    @property
+    def summary(self) -> str:
+        return (
+            f"rows={len(self.rows)} rejected={len(self.rejected)} "
+            f"skipped={self.skipped}"
+        )
+
+
+@dataclass
+class ActiveResult:
+    rows: list[CanonicalActive] = field(default_factory=list)
+    rejected: list[Reject] = field(default_factory=list)
+    skipped: int = 0                        # sold rows in an active search
 
     @property
     def summary(self) -> str:
